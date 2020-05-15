@@ -1,5 +1,6 @@
 import 'orz_server.dart';
 import 'controller/orz_controller.dart';
+
 /// This type initializes an application.
 ///
 /// Override methods in this class to set up routes and initialize services like
@@ -11,19 +12,19 @@ class HeroesChannel extends ApplicationChannel {
   /// and any other initialization required before constructing [entryPoint].
   ///
   /// This method is invoked prior to [entryPoint] being accessed.
- ManagedContext context;
+  ManagedContext context;
   @override
   Future prepare() async {
-    logger.onRecord.listen((rec) => print("$rec ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
+    logger.onRecord.listen(
+        (rec) => print("$rec ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
     final config = HeroConfig(options.configurationFilePath);
     final dataModel = ManagedDataModel.fromCurrentMirrorSystem();
-     final persistentStore = PostgreSQLPersistentStore.fromConnectionInfo(
-      config.database.username,
-      config.database.password,
-      config.database.host,
-      config.database.port,
-      config.database.databaseName);
-
+    final persistentStore = PostgreSQLPersistentStore.fromConnectionInfo(
+        config.database.username,
+        config.database.password,
+        config.database.host,
+        config.database.port,
+        config.database.databaseName);
 
     context = ManagedContext(dataModel, persistentStore);
   }
@@ -41,7 +42,6 @@ class HeroesChannel extends ApplicationChannel {
     // Prefer to use `link` instead of `linkFunction`.
     // See: https://aqueduct.io/docs/http/request_controller/
 
-
     // router
     //   .route("/example")
     //   .linkFunction((request) async {
@@ -50,90 +50,103 @@ class HeroesChannel extends ApplicationChannel {
     // router
     //   .route('/heroes')
     //   .link(() => HeroesController(context));
-    
+//index
     router
-      .route("/index")
-      .link(() => QuestionController(context));
+        .route("/index")
+        .link(() => QuestionController(context));
+//login
+    router
+        .route("/login/custom")
+        .link(() => UserController(context));
+    router
+        .route("/login/administer")
+        .link(() => UserController(context));
+
+//online_blockly
+    router
+        .route("/online_blockly")
+        .linkFunction((request) async {
+      return Response.ok({"key": "online_blockly"});
+    });
+
+    //question bank
+    router
+        .route("/question_bank")
+        .link(() => QuestionController(context));
 
     router
-      .route("/online_blockly")
-      .linkFunction((request) async {
-        return Response.ok({"key": "online_blockly"});
-      });
-
-    
-  //question bank
-    router
-    .route("/question_bank")
-    .link(() => QuestionController(context));
+        .route("/question_bank_detail/[:id]")
+        .link(() => QuestionController(context));
 
     router
-    .route("/question_bank_detail/[:id]")
-    .link(() => QuestionController(context));
-     
-
-    router
-    .route("/search_result")
-    .linkFunction((request) async {
-        return Response.ok({"key": "/search_result"});
-      });
+        .route("/search_result")
+        .link(() => QuestionController(context));
+    //     .linkFunction((request) async {
+    //   return Response.ok({"key": "/search_result"});
+    // });
 
 //personal
     router
-    .route("/personal_center/[:id]")
-    .linkFunction((request) async {
-        return Response.ok({"key": "/personal_center/[:id]"});
-      });
+        .route("/personal_center/[:id]")
+        .link(() => UserController(context));
+    //     .linkFunction((request) async {
+    //   return Response.ok({"key": "/personal_center/[:id]"});
+    // });
     router
-    .route("/personal_center_upload/[:id]")
-    .linkFunction((request) async {
-        return Response.ok({"key": "/personal_center_upload/[:id]"});
-      });
+          .route("/personal_center_upload/[:id]")
+          .link(() => UserController(context));
+    //       .linkFunction((request) async {
+    //   return Response.ok({"key": "/personal_center_upload/[:id]"});
+    // });
 
     router
-    .route("/personal_center_store/[:id]")
-    .linkFunction((request) async {
-        return Response.ok({"key": "/personal_center_store/[:id]"});
-      });
+        .route("/personal_center_store/[:id]")
+        .link(() => QuestionController(context));//Not Sure Really
+    //     .linkFunction((request) async {
+    //   return Response.ok({"key": "/personal_center_store/[:id]"});
+    // });
 
 //administer
     router
-    .route("/administer_personal_center/[:id]")
-    .linkFunction((request) async {
-        return Response.ok({"key": "/administer_personal_center/[:id]"});
-      });
+        .route("/administer_personal_center/[:id]")
+        .link(() => AdministerController(context));
+    //     .linkFunction((request) async {
+    //   return Response.ok({"key": "/administer_personal_center/[:id]"});
+    // });
 
     router
-    .route("/administer_user_information/[:id]")
-    .linkFunction((request) async {
-        return Response.ok({"key": "/administer_user_information/[:id]"});
-      });
+        .route("/administer_user_information/[:id]")
+        .link(() => UserController(context));
+    //     .linkFunction((request) async {
+    //   return Response.ok({"key": "/administer_user_information/[:id]"});
+    // });
 
     router
-    .route("/administer_question_update/[:id]")
-    .linkFunction((request) async {
-        return Response.ok({"key": "/administer_question_update/[:id]"});
-      });
+        .route("/administer_question_update/[:id]")
+        .link(() => QuestionController(context));
+    //     .linkFunction((request) async {
+    //   return Response.ok({"key": "/administer_question_update/[:id]"});
+    // });
 
-  router
-    .route("/administer_question_check/[:id]")
-    .linkFunction((request) async {
-        return Response.ok({"key": "/administer_question_check/[:id]"});
-      });
+    router
+        .route("/administer_question_check/[:id]")
+        .link(() => QuestionController(context));
+    //     .linkFunction((request) async {
+    //   return Response.ok({"key": "/administer_question_check/[:id]"});
+    // });
 
-router
-    .route("/administer_feedback/[:id]")
-    .linkFunction((request) async {
-        return Response.ok({"key": "/administer_feedback/[:id]"});
-      });
+    // router
+    //     .route("/administer_feedback/[:id]")
+    //     .linkFunction((request) async {
+    //   return Response.ok({"key": "/administer_feedback/[:id]"});
+    // });
 
-      
     return router;
   }
 }
 
 class HeroConfig extends Configuration {
-  HeroConfig(String path): super.fromFile(File(path));
+  HeroConfig(String path) : super.fromFile(File(path));
 
   DatabaseConfiguration database;
 }
