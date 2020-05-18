@@ -1,5 +1,8 @@
 import 'orz_server.dart';
-import 'controller/orz_controller.dart';
+import 'controller/heroes_controller.dart';
+import 'controller/question_controller.dart';
+import 'controller/user_controller.dart';
+import 'controller/administer_controller.dart';
 
 /// This type initializes an application.
 ///
@@ -47,9 +50,9 @@ class HeroesChannel extends ApplicationChannel {
     //   .linkFunction((request) async {
     //     return Response.ok({"key": "value"});
     //   });
-    // router
-    //   .route('/heroes')
-    //   .link(() => HeroesController(context));
+    router
+      .route('/heroes/[:id]')
+      .link(() => HeroesController(context));
 //index
     router
         .route("/index")

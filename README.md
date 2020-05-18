@@ -1,4 +1,8 @@
-# heroes
+# orz_server
+Hello,champions and beautiful people! Hello, lovely math!
+Miss you guys sooo much!
+Always be safe and well.
+
 
 ## Running the Application Locally
 
