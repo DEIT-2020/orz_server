@@ -90,13 +90,13 @@ class HeroesChannel extends ApplicationChannel {
 
 //personal
     router
-        .route("/personal_center/[:id]")
+        .route("/personal_center/[:user_id]")
         .link(() => UserController(context));
     //     .linkFunction((request) async {
     //   return Response.ok({"key": "/personal_center/[:id]"});
     // });
     router
-          .route("/personal_center_upload/[:id]")
+          .route("/personal_center_upload/[:user_id]")
           .link(() => UserController(context));
     //       .linkFunction((request) async {
     //   return Response.ok({"key": "/personal_center_upload/[:id]"});

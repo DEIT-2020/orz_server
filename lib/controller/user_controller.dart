@@ -9,7 +9,7 @@ class UserController extends ResourceController {
   UserController(this.context);
 
   final ManagedContext context;
-  @Operation.get()
+  @Operation.get('user_id')
   Future<Response> getUser() async {
     return Response.ok("getUser");
   }
