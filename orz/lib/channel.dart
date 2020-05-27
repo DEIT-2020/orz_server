@@ -4,6 +4,7 @@ import 'package:aqueduct/managed_auth.dart';
 import 'package:orz/model/user.dart';
 import 'package:orz/controller/register_controller.dart';
 import 'package:orz/controller/questions_controller.dart';
+import 'package:orz/controller/blocklyuser_controller.dart';
 
 class HeroesChannel extends ApplicationChannel {
 
@@ -82,57 +83,57 @@ Future prepare() async {
     router
         .route("/index")
         .link(() => QuestionController(context));
-// //login
-//     router
-//         .route("/login/custom")
-//         .link(() => UserController(context));
-//     router
-//         .route("/login/administer")
-//         .link(() => UserController(context));
+//login
+    router
+        .route("/login/custom")
+        .link(() => UserController(context));
+    router
+        .route("/login/administer")
+        .link(() => UserController(context));
 
-// //online_blockly
-//     router
-//         .route("/online_blockly")
-//         .linkFunction((request) async {
-//       return Response.ok({"key": "online_blockly"});
-//     });
+//online_blockly
+    router
+        .route("/online_blockly")
+        .linkFunction((request) async {
+      return Response.ok({"key": "online_blockly"});
+    });
 
-//     //question bank
-//     router
-//         .route("/question_bank")
-//         .link(() => QuestionController(context));
+    //question bank
+    router
+        .route("/question_bank")
+        .link(() => QuestionController(context));
 
-//     router
-//         .route("/question_bank_detail/[:id]")
-//         .link(() => QuestionController(context));
+    router
+        .route("/question_bank_detail/[:id]")
+        .link(() => QuestionController(context));
 
-//     router
-//         .route("/search_result")
-//         .link(() => QuestionController(context));
-//     //     .linkFunction((request) async {
-//     //   return Response.ok({"key": "/search_result"});
-//     // });
+    router
+        .route("/search_result")
+        .link(() => QuestionController(context));
+    //     .linkFunction((request) async {
+    //   return Response.ok({"key": "/search_result"});
+    // });
 
-// //personal
-//     router
-//         .route("/personal_center/[:user_id]")
-//         .link(() => UserController(context));
-//     //     .linkFunction((request) async {
-//     //   return Response.ok({"key": "/personal_center/[:id]"});
-//     // });
-//     router
-//           .route("/personal_center_upload/[:user_id]")
-//           .link(() => UserController(context));
-//     //       .linkFunction((request) async {
-//     //   return Response.ok({"key": "/personal_center_upload/[:id]"});
-//     // });
+//personal
+    router
+        .route("/personal_center/[:user_id]")
+        .link(() => UserController(context));
+    //     .linkFunction((request) async {
+    //   return Response.ok({"key": "/personal_center/[:id]"});
+    // });
+    router
+          .route("/personal_center_upload/[:user_id]")
+          .link(() => UserController(context));
+    //       .linkFunction((request) async {
+    //   return Response.ok({"key": "/personal_center_upload/[:id]"});
+    // });
 
-//     router
-//         .route("/personal_center_store/[:id]")
-//         .link(() => QuestionController(context));//Not Sure Really
-//     //     .linkFunction((request) async {
-//     //   return Response.ok({"key": "/personal_center_store/[:id]"});
-//     // });
+    router
+        .route("/personal_center_store/[:id]")
+        .link(() => QuestionController(context));//Not Sure Really
+    //     .linkFunction((request) async {
+    //   return Response.ok({"key": "/personal_center_store/[:id]"});
+    // });
 
 // //administer
 //     router
