@@ -5,7 +5,7 @@ class Blocklyuser extends ManagedObject<_Blocklyuser> implements _Blocklyuser {}
 
 class _Blocklyuser {
   @primaryKey
-  int id;
+  int uid;
 
   @Column(unique: true)
   String uname;

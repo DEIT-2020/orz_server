@@ -5,7 +5,7 @@ class Question extends ManagedObject<_Question> implements _Question {}
 
 class _Question {
   @primaryKey
-  int id;
+  int qid;
 
   @Column(unique: false)
   String qcontent;
