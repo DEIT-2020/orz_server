@@ -1,4 +1,4 @@
-import 'package:heroes/heroes.dart';
+import 'package:orz/orz.dart';
 // This declares a Hero entity. Entities are always made up of two classes.
 
 // The _Hero class is a direct mapping of a database table. 

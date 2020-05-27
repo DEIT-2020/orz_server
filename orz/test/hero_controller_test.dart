@@ -1,4 +1,4 @@
-import 'package:heroes/model/hero.dart';
+import 'package:orz/model/hero.dart';
 import 'harness/app.dart';
 void main() {
   final harness = Harness()..install();

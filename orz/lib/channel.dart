@@ -1,8 +1,8 @@
-import 'heroes.dart';
+import 'orz.dart';
 import 'controller/heroes_controller.dart';
 import 'package:aqueduct/managed_auth.dart';
-import 'package:heroes/model/user.dart';
-import 'package:heroes/controller/register_controller.dart';
+import 'package:orz/model/user.dart';
+import 'package:orz/controller/register_controller.dart';
 
 
 class HeroesChannel extends ApplicationChannel {

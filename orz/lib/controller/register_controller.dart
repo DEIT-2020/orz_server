@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:aqueduct/aqueduct.dart';
-import 'package:heroes/model/user.dart';
+import 'package:orz/model/user.dart';
 
 class RegisterController extends ResourceController {
   RegisterController(this.context, this.authServer);

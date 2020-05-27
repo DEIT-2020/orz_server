@@ -1,6 +1,6 @@
 // import 'package:aqueduct/aqueduct.dart';
-import 'package:heroes/heroes.dart';
-import 'package:heroes/model/hero.dart';
+import 'package:orz/orz.dart';
+import 'package:orz/model/hero.dart';
 
 // //version1.Controller can not handdle all the prolems, so we use ResourceController.
 // class HeroesController extends Controller {
