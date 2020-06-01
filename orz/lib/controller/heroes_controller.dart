@@ -48,24 +48,24 @@ class HeroesController extends ResourceController {
   // }
   
   //从数据库读入的
-  // @Operation.get()
-  // Future<Response> getAllHeroes() async {
-  //   final heroQuery = Query<Hero>(context);//从哪个database读取，返回Hero
-  //   final heroes = await heroQuery.fetch();//The fetch() execution method returns a List<Hero>.
-
-  //   return Response.ok(heroes);
-  // }
-//实现模糊搜索
   @Operation.get()
-Future<Response> getAllHeroes({@Bind.query('name') String name}) async {
-  final heroQuery = Query<Hero>(context);
-  if (name != null) {
-    heroQuery.where((h) => h.name).contains(name, caseSensitive: false);
-  }
-  final heroes = await heroQuery.fetch();
+  Future<Response> getAllHeroes() async {
+    final heroQuery = Query<Hero>(context);//从哪个database读取，返回Hero
+    final heroes = await heroQuery.fetch();//The fetch() execution method returns a List<Hero>.
 
-  return Response.ok(heroes);
-}
+    return Response.ok(heroes);
+  }
+// //实现模糊搜索
+//   @Operation.get()
+// Future<Response> getAllHeroes({@Bind.query('name') String name}) async {
+//   final heroQuery = Query<Hero>(context);
+//   if (name != null) {
+//     heroQuery.where((h) => h.name).contains(name, caseSensitive: false);
+//   }
+//   final heroes = await heroQuery.fetch();
+
+//   return Response.ok(heroes);
+// }
 
   ////version1
   // @Operation.get('id')
