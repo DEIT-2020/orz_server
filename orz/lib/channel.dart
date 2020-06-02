@@ -12,7 +12,8 @@ class HeroesChannel extends ApplicationChannel {
   ManagedContext context;
  // Add this field
   AuthServer authServer;
-
+  
+//////hhhhhhhhhh///////////////////
 
   //version3
   @override
