@@ -23,7 +23,10 @@ class QuestionController extends ResourceController {
 //index,question_bank
   @Operation.get()
   Future<Response> getTopQuestions() async {
-    return Response.ok("getTopQuestions");
+    final questionQuery = Query<Question>(context);//从哪个database读取
+    final questions = await questionQuery.fetch();//The fetch() execution method returns a List<Hero>.
+
+    return Response.ok(questions);
   }
 
   @Operation.get('qid')
@@ -43,11 +46,26 @@ class QuestionController extends ResourceController {
 //store
   @Operation.post()
   Future<Response> storeQuestions() async {
-    return Response.ok("storeQuestions");
+    final postquery = Query<Question>(context)
+    ..values.qid=15
+  ..values.qcontent = "1+1=?"
+  ..values.qanswer = "2"
+  ..values.qsource='test';  
+
+  await postquery.insert();  
   }
 //check
   @Operation.put('QuestionID')
   Future<Response> checkQuestions() async {
     return Response.ok("checkQuestions");
+  }
+
+//delete
+  @Operation.delete()
+  Future<Response> deleteQuestions() async {
+    var deletequery = Query<Question>(context)
+  ..where((u) => u.qid).equalTo(16);
+
+  await deletequery.delete();
   }
 }
