@@ -34,8 +34,9 @@ Future prepare() async {
   // Add these two lines:
     final authStorage = ManagedAuthDelegate<User>(context);
     authServer = AuthServer(authStorage);
+  //CORSPolicy.defaultPolicy.allowedOrigins = ["127.0.0.1:8080"];
 }
-
+  
 //version2
   // @override
   // Future prepare() async {
