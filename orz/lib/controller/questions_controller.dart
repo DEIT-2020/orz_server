@@ -8,17 +8,17 @@ class QuestionController extends ResourceController {
 
   final ManagedContext context;
 
-// //实现模糊搜索题目
-//   @Operation.get()
-// Future<Response> getAllQuestions({@Bind.query('qcontent') String content}) async {
-//   final questionQuery = Query<Question>(context);
-//   if (content != null) {
-//     questionQuery.where((h) => h.qcontent).contains(content, caseSensitive: false);
-//   }
-//   final questions = await questionQuery.fetch();
+// // //实现模糊搜索题目
+// //   @Operation.get()
+// // Future<Response> getAllQuestions({@Bind.query('qcontent') String content}) async {
+// //   final questionQuery = Query<Question>(context);
+// //   if (content != null) {
+// //     questionQuery.where((h) => h.qcontent).contains(content, caseSensitive: false);
+// //   }
+// //   final questions = await questionQuery.fetch();
 
-//   return Response.ok(questions);
-// }
+// //   return Response.ok(questions);
+// // }
 
 //index,question_bank
   @Operation.get()
@@ -29,43 +29,50 @@ class QuestionController extends ResourceController {
     return Response.ok(questions);
   }
 
-  @Operation.get('qid')
-  Future<Response> getQuestionsByID(@Bind.path('qid') int id) async {
-    return Response.ok("getQuestionsByID");
-  }
-//search
-  @Operation.get('keyword')
-  Future<Response> getQuestions() async {
-    return Response.ok("getQuestions");
-  }
-//upload
-  @Operation.get('QuestionContent')
-  Future<Response> uploadQuestions() async {
-    return Response.ok("uploadQuestions");
-  }
-//store
-  @Operation.post()
-  Future<Response> storeQuestions() async {
-    final postquery = Query<Question>(context)
-    ..values.qid=15
-  ..values.qcontent = "1+1=?"
-  ..values.qanswer = "2"
-  ..values.qsource='test';  
+  // @Operation.get('qid')
+  // Future<Response> getQuestionsByID(@Bind.path('qid') int id) async {
+  //   return Response.ok("getQuestionsByID");
+  // }
+// //search
+  // @Operation.get()
+  // Future<Response> getQuestions() async {
+  //   return Response.ok("getQuestions");
+  // }
 
-  await postquery.insert();  
+// //store
+//   // @Operation.post()
+//   // Future<Response> storeQuestion() async {
+//   //   final postquery = Query<Question>(context)
+//   //   ..values.qid=15
+//   // ..values.qcontent = "1+1=?"
+//   // ..values.qanswer = "2"
+//   // ..values.qsource='test';  
+
+//   // final insertedQuestion =await postquery.insert();  
+//   // return Response.ok(insertedQuestion);
+//   // }
+
+    @Operation.post()
+  Future<Response> storeQuestion(@Bind.body() Question inputQuestion) async {
+    final postquery = Query<Question>(context)
+  ..values = inputQuestion;
+    final insertedQuestion = await postquery.insert();
+
+    return Response.ok(insertedQuestion);
   }
-//check
-  @Operation.put('QuestionID')
-  Future<Response> checkQuestions() async {
-    return Response.ok("checkQuestions");
-  }
+
+// //check
+//   @Operation.put('QuestionID')
+//   Future<Response> checkQuestions() async {
+//     return Response.ok("checkQuestions");
+//   }
 
 //delete
   @Operation.delete()
-  Future<Response> deleteQuestions() async {
-    var deletequery = Query<Question>(context)
-  ..where((u) => u.qid).equalTo(16);
-
+  Future<Response> deleteQuestion(@Bind.body() Question inputQuestion) async {
+  final deletequery = Query<Question>(context)
+    ..where((q) => q.id).equalTo(inputQuestion.id);
   await deletequery.delete();
+    return Response.ok("删除成功！");
   }
 }

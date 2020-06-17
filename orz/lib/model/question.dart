@@ -1,3 +1,6 @@
+
+import 'package:orz/orz.dart';
+import 'package:orz/model/blocklyuser.dart';
 import 'package:orz/orz.dart';
 import 'package:orz/model/blocklyuser.dart';
 
@@ -5,7 +8,7 @@ class Question extends ManagedObject<_Question> implements _Question {}
 
 class _Question {
   @primaryKey
-  int qid;
+  int id;
 
   @Column(unique: false)
   String qcontent;
@@ -16,22 +19,23 @@ class _Question {
   @Column(unique: false)
   String qsource;
 
+  
   ManagedSet<QuestionType> questionTypes;
   ManagedSet<UserFinish> userFinish;
   ManagedSet<UserStore> userStore;
+
 }
 
 class Type extends ManagedObject<_Type> implements _Type {}
 
 class _Type {
   @primaryKey
-  int tid;
+  int id;
 
   @Column(unique: false)
   String tname;
 
-  ManagedSet<QuestionType> questionTypes;
-
+   ManagedSet<QuestionType> questionTypes;
 
 }
 
@@ -46,4 +50,3 @@ class _QuestionType {
   @Relate(#questionTypes)
   Type type;
 }
-
