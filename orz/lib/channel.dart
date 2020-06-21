@@ -4,6 +4,7 @@ import 'package:aqueduct/managed_auth.dart';
 import 'package:orz/model/user.dart';
 import 'package:orz/controller/register_controller.dart';
 import 'package:orz/controller/questions_controller.dart';
+import 'package:orz/controller/search_controller.dart';
 import 'package:orz/controller/blocklyuser_controller.dart';
 
 class HeroesChannel extends ApplicationChannel {
@@ -102,16 +103,12 @@ Future prepare() async {
 
     //question bank
     router
-        .route("/question_bank")
+        .route("/question_bank/[:id]")
         .link(() => QuestionController(context));
 
     router
-        .route("/question_bank_detail/[:id]")
-        .link(() => QuestionController(context));
-
-    router
-        .route("/search_result")
-        .link(() => QuestionController(context));
+        .route("/search")
+        .link(() => SearchController(context));
     //     .linkFunction((request) async {
     //   return Response.ok({"key": "/search_result"});
     // });

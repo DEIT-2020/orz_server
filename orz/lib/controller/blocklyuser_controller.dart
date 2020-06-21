@@ -14,16 +14,15 @@ class UserController extends ResourceController {
     return Response.ok("getUser");
   }
 
-  @Operation.post()
-  Future<Response> createUser() async {
-    // final query = Query<Hero>(context)
-    //   ..values = inputHero;
 
-    // final insertedHero = await query.insert();
+      @Operation.post()
+  Future<Response> storeUser(@Bind.body() Blocklyuser inputUser) async {
+    final postquery = Query<Blocklyuser>(context)
+  ..values = inputUser;
+    final insertedUser = await postquery.insert();
 
-    // return Response.ok(insertedHero);
-    Future<Response> addUser() async {
-      return Response.ok("addUser");
-    }
+    return Response.ok(insertedUser);
   }
+
+
 }

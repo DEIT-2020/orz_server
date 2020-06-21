@@ -29,10 +29,23 @@ class QuestionController extends ResourceController {
     return Response.ok(questions);
   }
 
-  // @Operation.get('qid')
-  // Future<Response> getQuestionsByID(@Bind.path('qid') int id) async {
-  //   return Response.ok("getQuestionsByID");
-  // }
+  @Operation.get('id')
+  Future<Response> getQuestionsByID(@Bind.path('id') int id) async {
+  final questionQuery = Query<Question>(context)
+    ..where((q) => q.id).equalTo(id);    //相当于sql的SELECT id, name FROM _question WHERE id = #;语句
+
+  final question = await questionQuery.fetchOne();//取一个//You can also fetch an object by its primary key with the method ManagedContext.fetchObjectWithID. 
+
+  if (question == null) {
+    return Response.notFound();
+  }
+  else{
+    return Response.ok(question);
+    }
+  }
+
+  //实现模糊搜索
+
 // //search
   // @Operation.get()
   // Future<Response> getQuestions() async {
