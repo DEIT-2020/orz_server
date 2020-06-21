@@ -22,7 +22,7 @@ class QuestionController extends ResourceController {
 
 //index,question_bank
   @Operation.get()
-  Future<Response> getTopQuestions() async {
+  Future<Response> getQuestions() async {
     final questionQuery = Query<Question>(context);//从哪个database读取
     final questions = await questionQuery.fetch();//The fetch() execution method returns a List<Hero>.
 
@@ -82,10 +82,18 @@ class QuestionController extends ResourceController {
 
 //delete
   @Operation.delete()
-  Future<Response> deleteQuestion(@Bind.body() Question inputQuestion) async {
+  Future<Response> deleteQuestion(@Bind.body() Question question) async {
   final deletequery = Query<Question>(context)
-    ..where((q) => q.id).equalTo(inputQuestion.id);
+    ..where((q) => q.id).equalTo(question.id);
   await deletequery.delete();
     return Response.ok("删除成功！");
   }
+    @Operation.put('id')
+Future<Response> updateUser(@Bind.path('id') int id, @Bind.body() Question question) async {
+  final query = Query<Question>(context)
+    ..where((u) => u.id).equalTo(id)
+    ..values = question;
+
+  return Response.ok(await query.updateOne());
+}
 }

@@ -115,13 +115,13 @@ Future prepare() async {
 
 //personal
     router
-        .route("/personal_center/[:user_id]")
+        .route("/personal_center/[:id]")
         .link(() => UserController(context));
     //     .linkFunction((request) async {
     //   return Response.ok({"key": "/personal_center/[:id]"});
     // });
     router
-          .route("/personal_center_upload/[:user_id]")
+          .route("/personal_center/:id/[:qid]")
           .link(() => UserController(context));
     //       .linkFunction((request) async {
     //   return Response.ok({"key": "/personal_center_upload/[:id]"});
