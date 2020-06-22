@@ -1,7 +1,7 @@
 import 'package:aqueduct/aqueduct.dart';
 import 'package:orz/orz.dart';
 import 'package:orz/model/question.dart';
-
+import 'package:orz/model/blocklyuser.dart';
 
 class QuestionController extends ResourceController {
   QuestionController(this.context);
@@ -29,10 +29,10 @@ class QuestionController extends ResourceController {
     return Response.ok(questions);
   }
 
-  @Operation.get('id')
-  Future<Response> getQuestionsByID(@Bind.path('id') int id) async {
+  @Operation.get('qid')
+  Future<Response> getQuestionsByID(@Bind.path('qid') int qid) async {
   final questionQuery = Query<Question>(context)
-    ..where((q) => q.id).equalTo(id);    //相当于sql的SELECT id, name FROM _question WHERE id = #;语句
+    ..where((q) => q.id).equalTo(qid);    //相当于sql的SELECT id, name FROM _question WHERE id = #;语句
 
   final question = await questionQuery.fetchOne();//取一个//You can also fetch an object by its primary key with the method ManagedContext.fetchObjectWithID. 
 
@@ -96,4 +96,15 @@ Future<Response> updateUser(@Bind.path('id') int id, @Bind.body() Question quest
 
   return Response.ok(await query.updateOne());
 }
+
+  @Operation.post('qid')
+  Future<Response> storeUserstore(@Bind.path('qid') int qid,@Bind.body() Blocklyuser blocklyuser) async {
+    final postquery = Query<UserStore>(context)
+  ..values.storetime= DateTime.now()
+  ..values.user.id = blocklyuser.id
+  ..values.question.id  = qid;
+    final insertedUserstore = await postquery.insert();
+
+    return Response.ok(insertedUserstore);
+  }
 }

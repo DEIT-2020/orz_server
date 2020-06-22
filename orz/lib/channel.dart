@@ -103,7 +103,7 @@ Future prepare() async {
 
     //question bank
     router
-        .route("/question_bank/[:id]")
+        .route("/question_bank/[:qid]")
         .link(() => QuestionController(context));
 
     router
@@ -115,17 +115,12 @@ Future prepare() async {
 
 //personal
     router
-        .route("/personal_center/[:id]")
+        .route("/personal_center/[:uid/[:qid]]")
         .link(() => UserController(context));
     //     .linkFunction((request) async {
     //   return Response.ok({"key": "/personal_center/[:id]"});
     // });
-    router
-          .route("/personal_center/:id/[:qid]")
-          .link(() => UserController(context));
-    //       .linkFunction((request) async {
-    //   return Response.ok({"key": "/personal_center_upload/[:id]"});
-    // });
+
 
     router
         .route("/personal_center_store/[:id]")
