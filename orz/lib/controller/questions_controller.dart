@@ -35,7 +35,6 @@ class QuestionController extends ResourceController {
     ..where((q) => q.id).equalTo(qid);    //相当于sql的SELECT id, name FROM _question WHERE id = #;语句
 
   final question = await questionQuery.fetchOne();//取一个//You can also fetch an object by its primary key with the method ManagedContext.fetchObjectWithID. 
-
   if (question == null) {
     return Response.notFound();
   }
