@@ -3,6 +3,7 @@ import 'package:angular_router/angular_router.dart';
 
 import 'src/routes.dart';
 import 'src/hero_service.dart';
+import 'src/question_service.dart';
 
 @Component(
   selector: 'my-app',
@@ -12,7 +13,7 @@ import 'src/hero_service.dart';
       <a [routerLink]="RoutePaths.dashboard.toUrl()"
          [routerLinkActive]="'active'">Dashboard</a>
       <a [routerLink]="RoutePaths.questions.toUrl()"
-         [routerLinkActive]="'active'">Heroes</a>
+         [routerLinkActive]="'active'">Questions</a>
     </nav>
     <router-outlet [routes]="Routes.all"></router-outlet>
   ''',

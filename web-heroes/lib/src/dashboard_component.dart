@@ -4,13 +4,14 @@ import 'package:angular_router/angular_router.dart';
 import 'hero.dart';
 import 'hero_service.dart';
 import 'hero_search_component.dart';
+import 'question-bank/question_bank_component.dart';
 import 'route_paths.dart';
 
 @Component(
   selector: 'my-dashboard',
   templateUrl: 'dashboard_component.html',
   styleUrls: ['dashboard_component.css'],
-  directives: [coreDirectives, HeroSearchComponent, routerDirectives],
+  directives: [coreDirectives, HeroSearchComponent,QuestionBankComponent, routerDirectives],
 )
 class DashboardComponent implements OnInit {
   List<Question> questions;

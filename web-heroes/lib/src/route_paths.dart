@@ -6,6 +6,7 @@ class RoutePaths {
   static final dashboard = RoutePath(path: 'dashboard');
   static final questions = RoutePath(path: 'questions');
   static final question = RoutePath(path: '${questions.path}/:$idParam');
+  static final questionbank = RoutePath(path: 'questionbank');
 }
 
 int getId(Map<String, String> parameters) {
