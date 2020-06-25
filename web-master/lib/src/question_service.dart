@@ -7,7 +7,7 @@ import 'question.dart';
 
 class QuestionService {
   static final _headers = {'Content-Type': 'application/json'};
-  static const _heroesUrl = 'api/questionbank'; // URL to web API
+  static const _questionsUrl = 'api/questionbank'; // URL to web API
 
   final Client _http;
 
@@ -15,7 +15,7 @@ class QuestionService {
 
   Future<List<Question>> getAll() async {
     try {
-      final response = await _http.get(_heroesUrl);
+      final response = await _http.get(_questionsUrl);
       final questions = (_extractData(response) as List)
           .map((json) => Question.fromJson(json))
           .toList();
@@ -34,7 +34,7 @@ class QuestionService {
 
   Future<Question> get(int id) async {
     try {
-      final response = await _http.get('$_heroesUrl/$id');
+      final response = await _http.get('$_questionsUrl/$id');
       return Question.fromJson(_extractData(response));
     } catch (e) {
       throw _handleError(e);
@@ -43,7 +43,7 @@ class QuestionService {
 
   Future<Question> create(String name) async {
     try {
-      final response = await _http.post(_heroesUrl,
+      final response = await _http.post(_questionsUrl,
           headers: _headers, body: json.encode({'name': name}));
       return Question.fromJson(_extractData(response));
     } catch (e) {
@@ -53,7 +53,7 @@ class QuestionService {
 
   Future<Question> update(Question question) async {
     try {
-      final url = '$_heroesUrl/${question.id}';
+      final url = '$_questionsUrl/${question.id}';
       final response =
           await _http.put(url, headers: _headers, body: json.encode(question));
       return Question.fromJson(_extractData(response));
@@ -64,7 +64,7 @@ class QuestionService {
 
   Future<void> delete(int id) async {
     try {
-      final url = '$_heroesUrl/$id';
+      final url = '$_questionsUrl/$id';
       await _http.delete(url, headers: _headers);
     } catch (e) {
       throw _handleError(e);

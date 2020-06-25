@@ -10,11 +10,11 @@ class HeroSearchService {
 
   HeroSearchService(this._http);
 
-  Future<List<Question>> search(String term) async {
+  Future<List<Hero>> search(String term) async {
     try {
       final response = await _http.get('app/heroes/?name=$term');
       return (_extractData(response) as List)
-          .map((json) => Question.fromJson(json))
+          .map((json) => Hero.fromJson(json))
           .toList();
     } catch (e) {
       throw _handleError(e);

@@ -3,7 +3,6 @@ import 'package:angular_router/angular_router.dart';
 
 import 'src/routes.dart';
 import 'src/hero_service.dart';
-import 'src/question_service.dart';
 
 @Component(
   selector: 'my-app',
@@ -12,7 +11,9 @@ import 'src/question_service.dart';
     <nav>
       <a [routerLink]="RoutePaths.dashboard.toUrl()"
          [routerLinkActive]="'active'">Dashboard</a>
-      <a [routerLink]="RoutePaths.questions.toUrl()"
+      <a [routerLink]="RoutePaths.heroes.toUrl()"
+         [routerLinkActive]="'active'">Heroes</a>
+         <a [routerLink]="RoutePaths.questionbank.toUrl()"
          [routerLinkActive]="'active'">Questions</a>
     </nav>
     <router-outlet [routes]="Routes.all"></router-outlet>
@@ -23,5 +24,5 @@ import 'src/question_service.dart';
   exports: [RoutePaths, Routes],
 )
 class AppComponent {
-  final title = 'Tour of Questions';
+  final title = 'Tour of Heroes';
 }

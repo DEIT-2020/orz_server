@@ -4,9 +4,9 @@ import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:stream_transform/stream_transform.dart';
 
-import 'route_paths.dart';
-import 'hero_search_service.dart';
-import 'hero.dart';
+import '../route_paths.dart';
+import '../hero_search_service.dart';
+import '../hero.dart';
 
 @Component(
   selector: 'hero-search',
@@ -20,21 +20,19 @@ class HeroSearchComponent implements OnInit {
   HeroSearchService _heroSearchService;
   Router _router;
 
-  Stream<List<Question>> questions;
+  Stream<List<Hero>> heroes;
   StreamController<String> _searchTerms = StreamController<String>.broadcast();
 
   HeroSearchComponent(this._heroSearchService, this._router) {}
 
-
-
   void search(String term) => _searchTerms.add(term);
 
   void ngOnInit() async {
-    questions = _searchTerms.stream
+    heroes = _searchTerms.stream
         .transform(debounce(Duration(milliseconds: 300)))
         .distinct()
         .transform(switchMap((term) => term.isEmpty
-            ? Stream<List<Question>>.fromIterable([<Question>[]])
+            ? Stream<List<Hero>>.fromIterable([<Hero>[]])
             : _heroSearchService.search(term).asStream()))
         .handleError((e) {
       print(e); // for demo purposes only
@@ -42,8 +40,8 @@ class HeroSearchComponent implements OnInit {
   }
 
   String _heroUrl(int id) =>
-      RoutePaths.question.toUrl(parameters: {idParam: '$id'});
+      RoutePaths.hero.toUrl(parameters: {idParam: '$id'});
 
-  Future<NavigationResult> gotoDetail(Question question) =>
-      _router.navigate(_heroUrl(question.id));
+  Future<NavigationResult> gotoDetail(Hero hero) =>
+      _router.navigate(_heroUrl(hero.id));
 }

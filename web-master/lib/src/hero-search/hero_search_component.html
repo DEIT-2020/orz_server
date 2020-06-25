@@ -4,9 +4,9 @@
          (change)="search(searchBox.value)"
          (keyup)="search(searchBox.value)" />
   <div>
-    <div *ngFor="let question of questions | async"
-         (click)="gotoDetail(question)" class="search-result" >
-      {{question.qcontent}}
+    <div *ngFor="let hero of heroes | async"
+         (click)="gotoDetail(hero)" class="search-result" >
+      {{hero.name}}
     </div>
   </div>
 </div>

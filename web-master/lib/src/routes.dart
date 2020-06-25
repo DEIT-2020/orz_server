@@ -1,10 +1,9 @@
 import 'package:angular_router/angular_router.dart';
-// import 'package:angular_tour_of_heroes/src/hero.dart';
 
 import 'route_paths.dart';
-import 'dashboard_component.template.dart' as dashboard_template;
-import 'hero_component.template.dart' as hero_template;
-import 'hero_list_component.template.dart' as hero_list_template;
+import 'dashboard/dashboard_component.template.dart' as dashboard_template;
+import 'hero/hero_component.template.dart' as hero_template;
+import 'hero-list/hero_list_component.template.dart' as hero_list_template;
 import 'question-bank/question_bank_component.template.dart' as question_bank_template;
 
 export 'route_paths.dart';
@@ -15,25 +14,32 @@ class Routes {
     component: dashboard_template.DashboardComponentNgFactory,
   );
 
-  static final question = RouteDefinition(
-    routePath: RoutePaths.question,
+  static final hero = RouteDefinition(
+    routePath: RoutePaths.hero,
     component: hero_template.HeroComponentNgFactory,
   );
 
-  static final questions = RouteDefinition(
-    routePath: RoutePaths.questions,
+  static final heroes = RouteDefinition(
+    routePath: RoutePaths.heroes,
     component: hero_list_template.HeroListComponentNgFactory,
   );
 
-  static final questionbank = RouteDefinition(
+    static final questionbank = RouteDefinition(
     routePath: RoutePaths.questionbank,
     component: question_bank_template.QuestionBankComponentNgFactory,
   );
+     static final question = RouteDefinition(
+    routePath: RoutePaths.question,
+    component: question_bank_template.QuestionBankComponentNgFactory,
+  );
+  
+
   static final all = <RouteDefinition>[
     dashboard,
-    question,
-    questions,
+    hero,
+    heroes,
     questionbank,
+    question,
     RouteDefinition.redirect(
       path: '',
       redirectTo: RoutePaths.dashboard.toUrl(),
