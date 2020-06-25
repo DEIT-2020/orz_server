@@ -12,7 +12,7 @@ import 'src/test/test_component.dart';
   selector: 'my-app',
   styleUrls: ['app_component.css'],
   templateUrl: 'app_component.html',
-  directives: [TodoListComponent,QuestionBankComponent,formDirectives],
+  directives: [TodoListComponent,QuestionBankComponent,formDirectives,TestComponent],
 )
 class AppComponent {
   // Nothing here yet. All logic is in TodoListComponent.

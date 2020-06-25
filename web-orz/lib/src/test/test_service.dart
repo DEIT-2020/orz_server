@@ -1,42 +1,17 @@
-import 'package:angular/angular.dart';
+import 'dart:async';
 
-import 'package:angular_components/angular_components.dart';
-
-
-import 'package:intl/intl.dart';
-import '../question_bank/question_bank_service.dart';
+import 'package:angular/core.dart';
 
 import 'dart:html';
 import 'dart:convert';
 
-@Component(
+/// Mock service emulating access to a to-do list stored on a server.
+@Injectable()
+class testService {
 
-  selector: 'mat-drawer-demo',
-
-  directives: [
-TestComponent
-
-  ],
-
-  templateUrl: 'test_component.html',
-
-  // styleUrls: [
-
-  //   // 'test_component.scss.css',
-
-  //   'package:angular_components/app_layout/layout.scss.css',
-
-  // ],
-   providers: [ClassProvider(QuestionBankService)],
-
-)
-
-
-class TestComponent implements OnInit {
-  
-UListElement wordList;
+// UListElement wordList;
   querySelector('#getWords').onClick.listen(makeRequest);
-  UListElement wordList= querySelector('#wordList') as UListElement;
+  UListElement wordList= querySelector('#wordList') ;
 
 
  
@@ -66,8 +41,5 @@ void requestComplete(HttpRequest request) {
   }
 }
 
-  @override
-  void ngOnInit() {
-    // TODO: implement ngOnInit
-  }
+  Future<List<String>> getTodoList() async => wordList;
 }

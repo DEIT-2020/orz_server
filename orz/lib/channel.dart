@@ -129,6 +129,12 @@ Future prepare() async {
     //   return Response.ok({"key": "/personal_center_store/[:id]"});
     // });
 
+     router
+        .route("/test")
+        .linkFunction((request) async {
+      return Response.ok(["name1","name2","name3"]);
+    });
+
 // //administer
 //     router
 //         .route("/administer_personal_center/[:id]")
