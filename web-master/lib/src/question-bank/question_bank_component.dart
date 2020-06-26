@@ -4,14 +4,14 @@ import 'package:angular_router/angular_router.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:stream_transform/stream_transform.dart';
 
-import '../question.dart';
-import '../question_service.dart';
+import '../model/question.dart';
+import '../service/question_service.dart';
 import '../route_paths.dart';
 
 @Component(
   selector: 'app-question-bank',
   templateUrl: 'question_bank_component.html',
-  // styleUrls: ['question_bank_component.scss.css'],
+  styleUrls: ['question_bank_component.css'],
   directives: [coreDirectives, QuestionBankComponent, routerDirectives, formDirectives],
   providers: [ClassProvider(QuestionService)],
   
@@ -53,8 +53,7 @@ class QuestionBankComponent implements OnActivate {
   void goBack() => _location.back();
 }
 
-class QuestionBankService {
-}
+
 
 // export class QuestionBankComponent implements OnInit {
 

@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 
-import 'hero.dart';
+import '../model/hero.dart';
 
 class HeroSearchService {
   final Client _http;

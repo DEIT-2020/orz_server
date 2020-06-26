@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 
-import 'question.dart';
+import '../model/question.dart';
 
 class QuestionService {
   static final _headers = {'Content-Type': 'application/json'};
@@ -41,10 +41,10 @@ class QuestionService {
     }
   }
 
-  Future<Question> create(String name) async {
+  Future<Question> create(String qcontent,String qanswer,String qsource) async {
     try {
       final response = await _http.post(_questionsUrl,
-          headers: _headers, body: json.encode({'name': name}));
+          headers: _headers, body: json.encode({'qcontent': qcontent,'qanswer':qanswer,'qsource':qsource}));
       return Question.fromJson(_extractData(response));
     } catch (e) {
       throw _handleError(e);

@@ -2,7 +2,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
 import 'src/routes.dart';
-import 'src/hero_service.dart';
+import 'src/service/hero_service.dart';
 
 @Component(
   selector: 'my-app',

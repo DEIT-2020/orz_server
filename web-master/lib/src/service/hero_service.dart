@@ -3,11 +3,11 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 
-import 'hero.dart';
+import '../model/hero.dart';
 
 class HeroService {
   static final _headers = {'Content-Type': 'application/json'};
-  static const _heroesUrl = 'http://127.0.0.1:8888/heroes'; // URL to web API
+  static const _heroesUrl = 'api/heroes'; // URL to web API
 
   final Client _http;
 
@@ -19,6 +19,14 @@ class HeroService {
       final heroes = (_extractData(response) as List)
           .map((json) => Hero.fromJson(json))
           .toList();
+      // var heroes1 = (_extractData(response) as List);
+      // List<Hero> heroes;
+      // for (var i = 0; i < heroes1.length; i++) {
+      //   Hero h;
+      //   Map<int,String> map=heroes1[i];
+      //   h=Hero(int.parse(map['id']),map['name']);
+      //   heroes.add(h);
+      // }
       return heroes;
     } catch (e) {
       throw _handleError(e);

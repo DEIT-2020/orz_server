@@ -4,9 +4,9 @@ import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
 import '../route_paths.dart';
-import '../hero.dart';
+import '../model/hero.dart';
 import '../hero/hero_component.dart';
-import '../hero_service.dart';
+import '../service/hero_service.dart';
 
 @Component(
   selector: 'my-heroes',

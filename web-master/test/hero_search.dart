@@ -9,7 +9,7 @@ import 'package:angular_tour_of_heroes/in_memory_data_service.dart';
 import 'package:angular_tour_of_heroes/src/hero-search/hero_search_component.dart';
 import 'package:angular_tour_of_heroes/src/hero_search_component.template.dart'
     as ng;
-import 'package:angular_tour_of_heroes/src/hero_service.dart';
+import 'package:angular_tour_of_heroes/src/service/hero_service.dart';
 import 'package:http/http.dart';
 import 'package:mockito/mockito.dart';
 import 'package:pageloader/html.dart';

@@ -6,6 +6,7 @@
   </button>
 </div>
 <ul class="heroes">
+
   <li *ngFor="let hero of heroes"
       [class.selected]="hero === selected"
       (click)="onSelect(hero)">
@@ -15,7 +16,9 @@
       (click)="delete(hero); $event.stopPropagation()">x</button>
   </li>
 </ul>
+
 <p class="error" *ngIf="errorMessage != null">{{errorMessage}}</p>
+
 <div *ngIf="selected != null">
   <h2>
     {{selected.name | uppercase}} is my hero
