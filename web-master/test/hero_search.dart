@@ -6,7 +6,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/in_memory_data_service.dart';
-import 'package:angular_tour_of_heroes/src/hero-search/hero_search_component.dart';
+import 'package:angular_tour_of_heroes/src/hero/hero-search/hero_search_component.dart';
 import 'package:angular_tour_of_heroes/src/hero_search_component.template.dart'
     as ng;
 import 'package:angular_tour_of_heroes/src/service/hero_service.dart';

@@ -3,7 +3,7 @@ import 'package:angular_router/angular_router.dart';
 
 import '../model/hero.dart';
 import '../service/hero_service.dart';
-import '../hero-search/hero_search_component.dart';
+import '../hero/hero-search/hero_search_component.dart';
 import '../route_paths.dart';
 
 @Component(

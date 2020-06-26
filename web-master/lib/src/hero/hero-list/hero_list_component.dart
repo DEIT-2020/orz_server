@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
-import '../route_paths.dart';
-import '../model/hero.dart';
-import '../hero/hero_component.dart';
-import '../service/hero_service.dart';
+import '../../route_paths.dart';
+import '../../model/hero.dart';
+import '../../hero/hero_component.dart';
+import '../../service/hero_service.dart';
 
 @Component(
   selector: 'my-heroes',

@@ -4,9 +4,9 @@ import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:stream_transform/stream_transform.dart';
 
-import '../route_paths.dart';
-import '../service/hero_search_service.dart';
-import '../model/hero.dart';
+import '../../route_paths.dart';
+import '../../service/hero_search_service.dart';
+import '../../model/hero.dart';
 
 @Component(
   selector: 'hero-search',
