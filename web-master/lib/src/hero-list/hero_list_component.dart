@@ -18,13 +18,18 @@ import '../hero_service.dart';
 class HeroListComponent implements OnInit {
   final HeroService _heroService;
   final Router _router;
+  String errorMessage;
   List<Hero> heroes;
   Hero selected;
 
   HeroListComponent(this._heroService, this._router);
 
   Future<void> _getHeroes() async {
-    heroes = await _heroService.getAll();
+     try {
+      heroes = await _heroService.getAll();
+    } catch (e) {
+      errorMessage = e.toString();
+    }
   }
 
   Future<void> add(String name) async {

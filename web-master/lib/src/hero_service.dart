@@ -7,7 +7,7 @@ import 'hero.dart';
 
 class HeroService {
   static final _headers = {'Content-Type': 'application/json'};
-  static const _heroesUrl = 'api/heroes'; // URL to web API
+  static const _heroesUrl = 'http://127.0.0.1:8888/heroes'; // URL to web API
 
   final Client _http;
 

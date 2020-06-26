@@ -15,6 +15,7 @@
       (click)="delete(hero); $event.stopPropagation()">x</button>
   </li>
 </ul>
+<p class="error" *ngIf="errorMessage != null">{{errorMessage}}</p>
 <div *ngIf="selected != null">
   <h2>
     {{selected.name | uppercase}} is my hero
