@@ -14,7 +14,7 @@ class UserController extends ResourceController {
   Future<Response> getUserByID(@Bind.path('uid') int uid) async {
   final userQuery = Query<Blocklyuser>(context)
     ..where((u) => u.id).equalTo(uid);    //相当于sql的SELECT id, name FROM _question WHERE id = #;语句
-
+   
   final user = await userQuery.fetchOne();//取一个//You can also fetch an object by its primary key with the method ManagedContext.fetchObjectWithID. 
 
   if (user == null) {
