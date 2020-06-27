@@ -1,0 +1,357 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to BlocklyMath!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<!-- jQuery -->
+<!--start slider-->
+	<link href="../css/camera.css" rel="stylesheet" type="text/css" media="all" />
+	<script src="../js/jquery.min.js"></script>
+    <script type='text/javascript' src="../js/jquery.mobile.customized.min.js"></script>
+    <script type='text/javascript' src="../js/jquery.easing.1.3.js"></script> 
+    <script type='text/javascript' src="../js/camera.min.js"></script>
+    <script>
+		jQuery(function(){
+
+			jQuery('#camera_wrap_2').camera({
+				
+				loader: 'bar',
+				pagination: false,
+				thumbnails: true
+			});
+		});
+	</script>
+<!--end slider-->
+<!--start gallery-->
+	<script type="text/javascript" src="../js/jquery.easing.min.js"></script>	
+	<script type="text/javascript" src="../js/jquery.mixitup.min.js"></script>
+	<script type="text/javascript">
+	$(function () {
+		
+		var filterList = {
+		
+			init: function () {
+			
+				// MixItUp plugin
+				// http://mixitup.io
+				$('#gallerylist').mixitup({
+					targetSelector: '.portfolio',
+					filterSelector: '.filter',
+					effects: ['fade'],
+					easing: 'snap',
+					// call the hover effect
+					onMixEnd: filterList.hoverEffect()
+				});				
+			
+			},
+			
+			hoverEffect: function () {
+			
+				// Simple parallax effect
+				$('#gallerylist .portfolio').hover(
+					function () {
+						$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+						$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
+					},
+					function () {
+						$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+						$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
+					}		
+				);				
+			
+			}
+
+		};
+		
+		// Run the show!
+		filterList.init();
+		
+		
+	});	
+	</script>
+<!--Add fancyBox main JS and CSS files-->
+<script src="././js/jquery.magnific-popup.js" type="text/javascript"></script>
+		<script>
+			$(document).ready(function() {
+				$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+			});
+		});
+		</script>
+
+<script defer src="main.dart.js"></script>
+</head>
+<body>
+<!--star-wrap-->      
+	    <div class="wrap">	
+	    	<!--header--> 
+	      		<div class="header">
+	      				<!--start-logo-->
+				          <div class="logo">	
+				             <a href="../home-page/home_page_component.html"><h1>Blockly<span>Math</span></h1></a>
+				          </div>
+				        <!--end-logo-->
+	      	 			<!--start-menu-->
+					  	<div class="menu">
+						  <a class="toggleMenu" href="#"><img src="../images/nav.png" alt= " " /></a>
+							<ul class="nav">
+								<li class="active"><a href="../home-page/home_page_component.html">首页</a></li>
+								<li ><a href="../online-blockly/online_blockly_component.html">在线编程</a></li>
+								<li><a href="../question-bank/question_bank_component.html">题库</a></li>
+								<li><a href="../search-result/search_result_component.html">搜索</a></li>
+								<li><a href="../personal-center/personal_center_component.html">个人中心</a></li>
+							<div class="clear"> </div>
+						    </ul>
+							<script type="text/javascript" src="../js/responsive-nav.js"></script>
+				        </div>	
+				        <div class="clear"> </div>
+						<!--end-menu-->
+				            				
+				</div>
+				</div>
+		  <!--end-header-->
+<!--end wrap-->    
+
+<!-- start slider -->
+<div class="main-con">
+	<div class="slider">
+		<div class="color"> <span> </span></div>
+		<div class="wrap">
+		<div class="fluid_container">
+        <div class="camera_wrap camera_magenta_skin" id="camera_wrap_2">
+            <div data-thumb="../images/them1.png" data-src="../images/slider1.jpg">
+                <div class="camera_caption fadeFromBottom">
+                    <h2>BlocklyMath教你学奥数</h2>
+                    <p>希望孩子见到奥数题目不再害怕？BlocklyMath帮您完成心愿。</p>
+                </div>
+            </div>
+            <div data-thumb="../images/them2.jpg" data-src="../images/slider2.jpg">
+                <div class="camera_caption fadeFromBottom">
+                  <h2>BlocklyMath教你学编程</h2>
+                    <p>平台提供在线Blockly编程，利用可视化编程模块，让孩子能通过拖拽模块写出自己的程序。</p>
+                </div>
+            </div>
+            <div data-thumb="../images/them3.jpg" data-src="../images/slider3.jpg">
+                <div class="camera_caption fadeFromBottom">
+                   <h2>问题驱动式学习</h2>
+                    <p>让孩子运用编程的工具，去解决一些有趣的奥数问题，在一次次思考中收获成长。</p>
+                </div>
+            </div>
+            <div data-thumb="../images/them4.jpg" data-src="../images/slider4.jpg">
+                <div class="camera_caption fadeFromBottom">
+               	    <h2>stem教育</h2>
+                    <p>结合数学和工程两方面的知识来解决问题，提高孩子多方面的能力。</p>
+                </div>
+            </div>
+            <div data-thumb="../images/them2.jpg" data-src="../images/slider2.jpg">
+                <div class="camera_caption fadeFromBottom">
+                    <h2>数学时有趣的</h2>
+                    <p>让数学变得不再困难，有了计算机，学会了编程，很多问题都能迎刃而解。</p>
+                </div>
+            </div>
+            <div data-thumb="../images/them6.jpg" data-src="../images/slider6.jpg">
+                <div class="camera_caption fadeFromBottom">
+                  <h2>信息素养必修课</h2>
+                    <p>在这个信息时代里，需要保持一定的信息素养。如果你不会编程，还在能什么？从BlocklyMath开始吧！</p>
+                </div>
+            </div>
+            
+        </div><!-- #camera_wrap_2 -->
+    </div><!-- .fluid_container -->
+    <div class="clear"></div>
+	</div>
+</div>
+<!--end slider-->
+<!--start home-page-con-->			  					     
+
+	<div class="home-page-con">
+		<div class="wrap">
+		<div class="top-grids">
+			<div class="top-grid">
+				<div class="top-grid-info">
+					<img src="../images/por.png" style="margin-top: 4px;" alt=" "/>
+					<h2>对奥数+编程感兴趣的学生</h2>
+					<div class="clear"> </div>
+				</div>
+				<p>在这个平台上，学生可以在线使用Blockly解决问题，在使用的过程中相信你会发现数学和编程之间的联系，和它们神奇的魅力。</p>
+				<!-- <a class="btn" href="portofolioitem.html">More</a> -->
+			</div>
+			<div class="top-grid">
+				<div class="top-grid-info">
+					<img src="../images/wrok.png" alt=" "/>
+					<h2>从事奥数教育和编程教育的老师</h2>
+					<div class="clear"> </div>
+				</div>
+				<p>老师可以用Blockly当作教学教学工具，当场演示数学题目/编程题目的做法，使得课程更加生动传神。 </p>
+				<!-- <a class="btn" href="portofolioitem.html">More</a> -->
+			</div>
+			<div class="top-grid">
+				<div class="top-grid-info">
+					<img src="../images/connect.png" alt=" "/>
+					<h2>希望掌握Blockly的编程的所有人</h2>
+					<div class="clear"> </div>
+				</div>
+				<p>BlocklyMath提供在线编程环境，帮助你快速上手Blockly。还有有趣的奥数题可以练手！ </p>
+				<!-- <a class="btn" href="./portofolioitem.html">More</a> -->
+			</div>
+			<div class="clear"> </div>
+		</div>
+		
+			<div class="heading">
+				<h2>奥数题目类型</h2>
+				<h6> </h6>
+					<div class="clear"> </div>
+			</div>
+			
+		
+	
+
+<!--end home-page-con-->
+<div class="main_btm">
+		
+			<!--start-mfp -->	
+			<div id="small-dialog1" class="mfp-hide">
+				<div class="pop_up">
+					<h2>character desing</h2>
+					<img src="../images/popup.jpg" alt=" "/>
+					<p class="para">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+				</div>
+			</div>
+			<!--end-mfp -->	
+		<!--start-content-->
+			<div class="gallery">
+					<div class="clear"> </div>
+					<div class="container">
+					
+			<div id="gallerylist">
+			
+				<div class="gallerylist-wrapper">				
+					<a class="popup-with-zoom-anim" href="#small-dialog1">
+						<img src="../images/image1.jpg"  alt="Image 1"/>
+						<span><img src="../images/plus.png" alt=" "/> </span>
+						<div class="desc">
+						 	<h2>鸡兔同笼问题</h2>
+						 	<h3>小学三年级</h3>
+						</div>
+					</a>
+				</div>
+				<div class="gallerylist-wrapper">				
+					<a class="popup-with-zoom-anim" href="#small-dialog1">
+						<img src="../images/image2.jpg"  alt="Image 2"/>
+						<span><img src="../images/plus.png" alt=" "/> </span>
+						<div class="desc">
+						 	<h2>牛吃草问题</h2>
+						 	<h3>小学五年级</h3>
+						</div>
+					</a>
+				</div>
+				<div class="gallerylist-wrapper">				
+					<a class="popup-with-zoom-anim" href="#small-dialog1">
+						<img src="../images/image3.jpg"  alt="Image 3" />
+						<span><img src="../images/plus.png" alt=" "/> </span>
+						<div class="desc">
+						 	<h2>简单概率问题</h2>
+						 	<h3>小学五年级</h3>
+						</div>
+					</a>
+				</div>
+				<div class="gallerylist-wrapper">				
+					<a class="popup-with-zoom-anim" href="#small-dialog1">
+						<img src="../images/image4.jpg"  alt="Image 4" />
+						<span><img src="../images/plus.png" alt=" "/> </span>
+						<div class="desc">
+						 	<h2>植树问题</h2>
+						 	<h3>小学四年级</h3>
+						</div>
+					</a>
+				</div>
+
+			</div>																																							
+		</div>
+	</div><!-- container -->
+	<script type="text/javascript" src="../js/fliplightbox.min.js"></script>
+	<script type="text/javascript">$('body').flipLightBox()</script>
+	<div class="clear"> </div>
+	</div>
+
+</div>
+</div>
+<!--End-gallery-->
+<!--start footer-->
+<div class="footer">
+	<div class="footer-main wrap">
+	<div class="footer-grids">
+		<div class="fgrid">
+			<h3>关于BlocklyMath</h3>
+			<p>基于Blockly编程模块，附加奥数题库，旨在让更多的人学会用编程的方法解决数学问题。</p>
+			<p>希望每位用户都能感受到学习数学和编程的乐趣。</p>
+		</div>
+		<div class="fgrid">
+			<h3>特别感谢</h3>
+				<div>
+					<p><a href="https://developers.google.cn/blockly/">@Blockly</a> Google提供的Blockly :)</p>
+					
+				</div>
+				<div>
+					<p><a href="https://dart.dev/">@Dart</a>Google提供的Dart :)</p>
+	
+				</div>
+				<div>
+					<p><a href="https://aqueduct.io/docs/">@Aqueduct</a>Aqueduct :)</p>
+                </div>
+                <div>
+					<p><a ></a>感谢@FX老师:)</p>
+				</div>
+		</div>
+		<div class="fgrid">
+            <h3>联系我们</h3>
+            <p>orzorzorz@126.com</p>
+			<p>华东师范大学教育信息技术学系orz团队</p>
+			<h4></p>团队github repository<a href="https://github.com/DEIT-2020/orz_server">@github </a></h4>
+			<h4>学习技术系统开发课程作业</h4>
+				<div class="social-media">
+			     <ul>
+			        <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="Facebook"><a href="#" target="_blank"> </a></span></li>
+			        <li><span class="simptip-position-bottom simptip-movable" data-tooltip="twitter"><a href="#" target="_blank"> </a> </span></li>
+			        <li><span class="simptip-position-bottom simptip-movable" data-tooltip="email"><a href="#" target="_blank"> </a></span></li>
+			        <li><span class="simptip-position-bottom simptip-movable" data-tooltip="rss"><a href="#" target="_blank"> </a></span></li>
+			        <li><span class="simptip-position-bottom simptip-movable" data-tooltip="vimeo"><a href="#" target="_blank"> </a></span></li>
+				</ul>
+		</div>
+		</div>
+		<div class="clear"> </div>
+	</div>
+</div>
+</div>
+<!--end footer-->
+<div class="copy-right">
+			<div class="wrap">
+				<div class="copy-right-left">
+					<p>Welcome To <a href="#">BlocklyMath</a></p>
+				</div>
+			</div>
+            </div>
+            
+
+      
+</div>
+</body>
+</html>
