@@ -8,11 +8,31 @@ import 'dart:html';
 import 'dart:convert';
 
 UListElement wordList;
+Element typeList;
 
 void main() {
-  var ele1=document.querySelector('#getWords').onClick.listen(makeRequest);
-  wordList = querySelector('#wordList') as UListElement;
-  ele1;
+  // var ele1=document.querySelector('#getWords').onClick.listen(makeRequest);
+  // wordList = querySelector('#wordList') as UListElement;
+  typeList=querySelector('#typeList') ;
+ 
+    var path = 'http://localhost:8888/type';
+   HttpRequest.getString(path).then((String fileContents) {
+    final data = json.decode(fileContents);
+    String temp='';
+      // List<String> property=['id','tname'];
+    for (var i = 0; i < 4; i++) {
+      temp=temp+'''<div class="gallerylist-wrapper" > <a class="popup-with-zoom-anim" href="#small-dialog1">
+          <img src="../images/type$i.jpg"  alt="Image 1"/>
+          <span><img src="../images/plus.png" alt=" "/> </span>
+          <div class="desc">''';
+     temp=temp+'<h2>'+data[i]['tname'].toString()+'</h2></div></a></div>';
+     print(temp);
+     }
+     typeList.innerHtml=temp;
+    }).catchError((error) {
+    print(error.toString());
+  });
+
 }
  
 void makeRequest(Event e) {
@@ -30,23 +50,9 @@ void requestComplete(HttpRequest request) {
     final portmanteaux =
         (json.decode(request.responseText) as List<dynamic>);
     for (var i = 0; i < portmanteaux.length; i++) {
-      // var portmanteaux_str=jsonEncode(portmanteaux[i]);//json_encode： json对象转json字符串
-      // Map<String, dynamic> map = json.decode(portmanteaux_str);//json_decode： json字符串转json对象
       Map<String, dynamic> map =portmanteaux[i];
       wordList.children.add(LIElement()..text = map['name']);
-      // //change
-      // List<Hero> heroes;
-      // for (var i = 0; i < portmanteaux.length; i++) {
-      //   Hero h;
-      //   Map<int,String> map=portmanteaux[i];
-      //   h=Hero(int.parse(map['id']),map['name']);
-      //   heroes.add(h);
-      // }
-      // for (i=0;i<heroes.length;i++){
-      //   Hero h2=heroes[i];
-      //   wordList.children.add(LIElement()..text = h2.name);
-      // }
-      
+    
     }
   } else {
     wordList.children

@@ -17,7 +17,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!--start slider-->
             <link href="../css/camera.css" rel="stylesheet" type="text/css" media="all" />
             <script src="../js/jquery.min.js"></script>
-            <script type='text/javascript' src="../js/jquery.mobile.customized.min.js"></script>
+            <!-- <script type='text/javascript' src="../js/jquery.mobile.customized.min.js"></script> -->
             <script type='text/javascript' src="../js/jquery.easing.1.3.js"></script> 
             <script type='text/javascript' src="../js/camera.min.js"></script>
             <script>
@@ -97,7 +97,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 });
                 </script>
         
-        <script defer src="main.dart.js"></script>
+        <script defer src="register_component.dart.js"></script>
         </head>
 <body>
 <!--star wrap-->      
@@ -147,31 +147,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						
 				   </div>
 					<div class="contact-form" location=center>
-					    <form method="post" action="../home-page/home_page_component.html">
 					    	<div>
                                 <h3>用户名： </h3><br>
-                                <span><input name="userName" type="text" class="textbox right" value="UserName" onfocus="if(this.value == 'UserName') this.value='';" onblur="if(this.value == '') this.value='UserName';"></span>
+                                <span><input id="UserName" name="UserName" type="text" class="textbox right" value="UserName" onfocus="if(this.value == 'UserName') this.value='';" onblur="if(this.value == '') this.value='UserName';"></span>
                             </div>
                             <div class="clear"></div>
                             <div>
                                 <h3>密码：</h3><br>
-						    	<span><input name="userName" type="text" class="textbox right" value="Password" onfocus="if(this.value == 'UserName') this.value='';" onblur="if(this.value == '') this.value='UserName';"></span>
+						    	<span><input id="UserPassword1" name="UserPassword" type="text" class="textbox right" value="Password" onfocus="if(this.value == 'Password') this.value='';" onblur="if(this.value == '') this.value='Password';"></span>
+                            </div>
+                            <div class="clear"></div>
+                            <div>
+                                <h3>请再次输入密码：</h3><br>
+						    	<span><input id="UserPassword2" name="UserPassword" type="text" class="textbox right" value="Password" onfocus="if(this.value == 'Password') this.value='';" onblur="if(this.value == '') this.value='Password';"></span>
                             </div>
                             <div class="clear"></div>
                             <div>
                                 <h3>邮箱：</h3><br>
-						    	<span><input name="userName" type="text" class="textbox right" value="Email" onfocus="if(this.value == 'Email') this.value='';" onblur="if(this.value == '') this.value='Email';"></span>
+						    	<span><input id="UserEmail" name="UserEmail" type="text" class="textbox right" value="Email" onfocus="if(this.value == 'Email') this.value='';" onblur="if(this.value == '') this.value='Email';"></span>
                             </div>
                             <div class="clear"></div>
                             <div>
                                 <h3>手机号：</h3><br>
-						    	<span><input name="userName" type="text" class="textbox right" value="Phonenumber" onfocus="if(this.value == 'Phonenumber') this.value='';" onblur="if(this.value == '') this.value='Phonenumber';"></span>
+						    	<span><input id="UserPhonenumber" name="UserPhonenumber" type="text" class="textbox right" value="Phonenumber" onfocus="if(this.value == 'Phonenumber') this.value='';" onblur="if(this.value == '') this.value='Phonenumber';"></span>
                             </div>
                             <div class="clear"></div>
-						   <div>
-						   		<span><input type="submit" class="" value="注册"></span> *要修改
-						  </div>
-					    </form>
+                            <button id="register">注册</button>
+						   <!-- <div>
+						   		<span><input type="submit" class="" value="注册"></span> 
+						  </div> -->
+					    
 				    </div>
 				    <div class="clear"></div>
 				</div>

@@ -17,7 +17,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!--start slider-->
             <link href="../css/camera.css" rel="stylesheet" type="text/css" media="all" />
             <script src="../js/jquery.min.js"></script>
-            <script type='text/javascript' src="../js/jquery.mobile.customized.min.js"></script>
+            <!-- <script type='text/javascript' src="../js/jquery.mobile.customized.min.js"></script> -->
             <script type='text/javascript' src="../js/jquery.easing.1.3.js"></script> 
             <script type='text/javascript' src="../js/camera.min.js"></script>
             <script>
@@ -97,7 +97,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 });
                 </script>
         
-        <script defer src="main.dart.js"></script>
+        <script defer src="personal_center_component.dart.js"></script>
         </head>
 <body>
 <!--star wrap-->      
@@ -114,7 +114,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <a class="toggleMenu" href="#"><img src="./images/nav.png" alt="" /></a>
 							<ul class="nav">
 								<li><a href="../home-page/home_page_component.html">首页</a></li>
-								<li><a href="../online-blockly/online_blockly_component.html">在线编程</a></li>
+								<li ><a href="../online-blockly/demos/code/online-blockly.html">在线编程</a></li>
 								<li><a href="../question-bank/question_bank_component.html">题库</a></li>
 								<li><a href="../search-result/search_result_component.html">搜索</a></li>
 								<li class="active"><a href="../personal-center/personal_center_component.html">个人中心</a></li>
@@ -146,31 +146,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="contact-left">
 					
 				<div class="contact">
-					<div class="company_address">
-						<h3>用户名： </h3>
-				     	<h3>密码：</h3>
-                        <h3>邮箱：</h3>
-                        <h3>手机号：</h3>
-				   </div>
-					<div class="contact-form">
-					    <form method="post" action="../home-page/home_page_component.html">
+					<div class="contact-form">          
 					    	<div>
-						    	<span><input name="userName" type="text" class="textbox right" value="UserName" onfocus="if(this.value == 'UserName') this.value='';" onblur="if(this.value == '') this.value='UserName';"></span>
-						    </div>
+                                <h3>用户名： </h3>
+						    	<span><input id="UserName"  type="text" class="textbox right" value="userName"  onfocus="if(this.value == 'userName') this.value='';" onblur="if(this.value == '') this.value='userName';" ></span>
+						    </div><div class="clear"></div>
 						    <div>
-						    	<span><input name="userName" type="text" class="textbox right" value="Password" onfocus="if(this.value == 'UserName') this.value='';" onblur="if(this.value == '') this.value='UserName';"></span>
-                            </div>
+                                <h3>密码：</h3>
+						    	<span><input id="UserPassword" name="Password" type="text" class="textbox right" value="Password" onfocus="if(this.value == 'Password') this.value='';" onblur="if(this.value == '') this.value='Password';"></span>
+                            </div><div class="clear"></div>
                             <div>
-						    	<span><input name="userName" type="text" class="textbox right" value="Email" onfocus="if(this.value == 'Email') this.value='';" onblur="if(this.value == '') this.value='Email';"></span>
-                            </div>
+                                <h3>邮箱：</h3>
+						    	<span><input id="UserEmail" name="Email" type="text" class="textbox right" value="Email" onfocus="if(this.value == 'Email') this.value='';" onblur="if(this.value == '') this.value='Email';"></span>
+                            </div><div class="clear"></div>
                             <div>
-						    	<span><input name="userName" type="text" class="textbox right" value="PhoneNumber" onfocus="if(this.value == 'PhoneNumber') this.value='';" onblur="if(this.value == '') this.value='PhoneNumber';"></span>
+                                <h3>手机号：</h3>
+						    	<span><input id="UserPhonenumber" name="PhoneNumber" type="text" class="textbox right" value="PhoneNumber" onfocus="if(this.value == 'PhoneNumber') this.value='';" onblur="if(this.value == '') this.value='PhoneNumber';"></span>
                             </div>
                             <div class="clear"></div>
-						   <div>
-						   		<span><input type="submit" class="" value="保存修改"></span>
-						  </div>
-					    </form>
+                            <div class="clear"></div>
+                            <div class="clear"></div>
+                       <button id="usersubmit">保存修改</button>
 				    </div>
 				    <div class="clear"></div>
 				</div>
@@ -178,11 +174,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="contact-right">
 					<div class="side-bar">
 				<div class="grid-right-headings">
-					<h2><a href="#">aboutjetro</a></h2>
+					<h2><a href="../personal-upload/personal_upload_component.html">上传题目</a></h2>
 					<h6> </h6>
 						<div class="clear"> </div>
 				</div>
-				<p style="padding:0px;">Lorem ipsum dolor sit amet, tempor adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p> 
+                <p style="padding:0px;">基于Blockly编程模块，附加奥数题库，旨在让更多的人学会用编程的方法解决数学问题。
+                    希望每位用户都能感受到学习数学和编程的乐趣。</p> 
 				<div class="grid-right-headings">
 					<h2><a href="#">收藏夹</a></h2>
 					<h6> </h6>

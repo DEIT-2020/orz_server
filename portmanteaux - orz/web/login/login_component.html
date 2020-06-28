@@ -17,7 +17,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!--start slider-->
             <link href="../css/camera.css" rel="stylesheet" type="text/css" media="all" />
             <script src="../js/jquery.min.js"></script>
-            <script type='text/javascript' src="../js/jquery.mobile.customized.min.js"></script>
+            <!-- <script type='text/javascript' src="../js/jquery.mobile.customized.min.js"></script> -->
             <script type='text/javascript' src="../js/jquery.easing.1.3.js"></script> 
             <script type='text/javascript' src="../js/camera.min.js"></script>
             <script>
@@ -97,7 +97,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 });
                 </script>
         
-        <script defer src="main.dart.js"></script>
+        <script defer src="login_component.dart.js"></script>
         </head>
 <body>
 <!--star wrap-->      
@@ -143,22 +143,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="contact-left">
 					
 				<div class="contact">
-					<div class="company_address">
-						
-				   </div>
-					<div class="contact-form" location=center>
-					    <form method="post" action="../home-page/home_page_component.html">
+					<div class="contact-form" >
+                        <!-- <form method="post" action="../home-page/home_page_component.html"> -->
+                            <form method="post" action="../home-page/home_page_component.html"></form>
 					    	<div>
-                                <h3>用户名： </h3><br>
-                                <span><input name="userName" type="text" class="textbox right" value="UserName" onfocus="if(this.value == 'UserName') this.value='';" onblur="if(this.value == '') this.value='UserName';"></span><br><br><br><br><br>
+                                <h3>手机： </h3><br>
+                                <span><input id="Phone" type='text' value='Phone' onfocus="if(this.value == 'Phone') this.value='';" onblur="if(this.value == '') this.value='Phone';"></span><br><br><br><br><br>
                                 <h3>密码：</h3><br>
-						    	<span><input name="userName" type="text" class="textbox right" value="Password" onfocus="if(this.value == 'Password') this.value='';" onblur="if(this.value == '') this.value='Password';"></span>
+						    	<span><input id="Password" name="Password" type="text"  value="Password" onfocus="if(this.value == 'Password') this.value='';" onblur="if(this.value == '') this.value='Password';"></span>
                             </div>
                             <div class="clear"></div>
+                            <h1><a href="../register/register_component.html">还没有账户？点击注册</a></h1><br><br><br><br>
 						   <div>
-                               <p> <a href="../register/register_component.html">还没有账户？点击注册</a></p>
-						   		<span><input type="submit" class="" value="登录"></span> *要修改
-						  </div>
+                               
+                                   <span><input type="submit" class="" value="登录" id="login"></span> 
+                          </div>
+                          <br><br><br><br>
 					    </form>
 				    </div>
 				    <div class="clear"></div>

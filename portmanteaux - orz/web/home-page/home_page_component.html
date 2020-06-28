@@ -12,14 +12,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
 <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<script defer src="home_page_component.dart.js"></script>
+
 <script type="text/javascript" src="../js/jquery.js"></script>
 <!-- jQuery -->
 <!--start slider-->
 	<link href="../css/camera.css" rel="stylesheet" type="text/css" media="all" />
 	<script src="../js/jquery.min.js"></script>
-    <script type='text/javascript' src="../js/jquery.mobile.customized.min.js"></script>
+    <!-- <script type='text/javascript' src="../js/jquery.mobile.customized.min.js"></script> -->
     <script type='text/javascript' src="../js/jquery.easing.1.3.js"></script> 
     <script type='text/javascript' src="../js/camera.min.js"></script>
+ 
+
     <script>
 		jQuery(function(){
 
@@ -33,8 +37,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</script>
 <!--end slider-->
 <!--start gallery-->
-	<script type="text/javascript" src="../js/jquery.easing.min.js"></script>	
-	<script type="text/javascript" src="../js/jquery.mixitup.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.easing.min.js"></script>	
+	<script type="text/javascript" src="./js/jquery.mixitup.min.js"></script>
 	<script type="text/javascript">
 	$(function () {
 		
@@ -80,7 +84,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	});	
 	</script>
 <!--Add fancyBox main JS and CSS files-->
-<script src="././js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="./js/jquery.magnific-popup.js" type="text/javascript"></script>
 		<script>
 			$(document).ready(function() {
 				$('.popup-with-zoom-anim').magnificPopup({
@@ -97,7 +101,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		});
 		</script>
 
-<script defer src="main.dart.js"></script>
+
 </head>
 <body>
 <!--star-wrap-->      
@@ -106,7 +110,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	      		<div class="header">
 	      				<!--start-logo-->
 				          <div class="logo">	
-				             <a href="../home-page/home_page_component.html"><h1>Blockly<span>Math</span></h1></a>
+				             <a href="home_page_component.html"><h1>Blockly<span>Math</span></h1></a>
 				          </div>
 				        <!--end-logo-->
 	      	 			<!--start-menu-->
@@ -114,10 +118,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <a class="toggleMenu" href="#"><img src="../images/nav.png" alt= " " /></a>
 							<ul class="nav">
 								<li class="active"><a href="../home-page/home_page_component.html">首页</a></li>
-								<li ><a href="../online-blockly/online_blockly_component.html">在线编程</a></li>
+								<li ><a href="../online-blockly/demos/code/online-blockly.html">在线编程</a></li>
 								<li><a href="../question-bank/question_bank_component.html">题库</a></li>
 								<li><a href="../search-result/search_result_component.html">搜索</a></li>
-								<li><a href="../personal-center/personal_center_component.html">个人中心</a></li>
+								<li><a href="../personal-center/personal_center_detail.html">个人中心</a></li>
 							<div class="clear"> </div>
 						    </ul>
 							<script type="text/javascript" src="../js/responsive-nav.js"></script>
@@ -240,51 +244,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="gallery">
 					<div class="clear"> </div>
 					<div class="container">
-					
-			<div id="gallerylist">
-			
-				<div class="gallerylist-wrapper">				
-					<a class="popup-with-zoom-anim" href="#small-dialog1">
-						<img src="../images/image1.jpg"  alt="Image 1"/>
-						<span><img src="../images/plus.png" alt=" "/> </span>
-						<div class="desc">
-						 	<h2>鸡兔同笼问题</h2>
-						 	<h3>小学三年级</h3>
-						</div>
-					</a>
-				</div>
-				<div class="gallerylist-wrapper">				
-					<a class="popup-with-zoom-anim" href="#small-dialog1">
-						<img src="../images/image2.jpg"  alt="Image 2"/>
-						<span><img src="../images/plus.png" alt=" "/> </span>
-						<div class="desc">
-						 	<h2>牛吃草问题</h2>
-						 	<h3>小学五年级</h3>
-						</div>
-					</a>
-				</div>
-				<div class="gallerylist-wrapper">				
-					<a class="popup-with-zoom-anim" href="#small-dialog1">
-						<img src="../images/image3.jpg"  alt="Image 3" />
-						<span><img src="../images/plus.png" alt=" "/> </span>
-						<div class="desc">
-						 	<h2>简单概率问题</h2>
-						 	<h3>小学五年级</h3>
-						</div>
-					</a>
-				</div>
-				<div class="gallerylist-wrapper">				
-					<a class="popup-with-zoom-anim" href="#small-dialog1">
-						<img src="../images/image4.jpg"  alt="Image 4" />
-						<span><img src="../images/plus.png" alt=" "/> </span>
-						<div class="desc">
-						 	<h2>植树问题</h2>
-						 	<h3>小学四年级</h3>
-						</div>
-					</a>
-				</div>
-
-			</div>																																							
+						<div id="gallerylist">
+							<div id="typeList">
+					  
+						  </div>	
+						</div>	
+																																								
 		</div>
 	</div><!-- container -->
 	<script type="text/javascript" src="../js/fliplightbox.min.js"></script>
@@ -349,9 +314,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 			</div>
             </div>
-            
-
-      
+  <!--end-->          
+        
 </div>
 </body>
 </html>

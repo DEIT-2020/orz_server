@@ -6,6 +6,8 @@ import 'package:orz/controller/register_controller.dart';
 import 'package:orz/controller/questions_controller.dart';
 import 'package:orz/controller/search_controller.dart';
 import 'package:orz/controller/blocklyuser_controller.dart';
+import 'package:orz/controller/type_controller.dart';
+import 'package:orz/controller/login_controller.dart';
 
 class HeroesChannel extends ApplicationChannel {
 
@@ -101,6 +103,11 @@ Future prepare() async {
       return Response.ok({"key": "online_blockly"});
     });
 
+//type
+    router
+        .route("/type")
+        .link(() =>TypeController(context));
+
     //question bank
     router
         .route("/question_bank/[:qid]")
@@ -120,7 +127,11 @@ Future prepare() async {
     //     .linkFunction((request) async {
     //   return Response.ok({"key": "/personal_center/[:id]"});
     // });
-
+    
+//personal
+    router
+        .route("/login/[:uphone]")
+        .link(() => LoginController(context));
 
     router
         .route("/personal_center_store/[:id]")

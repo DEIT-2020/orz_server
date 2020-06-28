@@ -1,64 +1,69 @@
-
 import 'dart:html';
 import 'dart:convert';
+import 'package:http/http.dart' as http;
 
-UListElement wordList;
+UListElement userList;
+InputElement userinput;
 
 void main() {
-  var ele1=document.querySelector('#getWords').onClick.listen(makeRequest);
-  wordList = querySelector('#wordList') as UListElement;
-  ele1;
-}
- 
-void makeRequest(Event e) {
-  var path1 = 'https://dart.dev/f/portmanteaux.json';
-  var path = 'http://127.0.0.1:8888/heroes';
-  var httpRequest = HttpRequest();
-  httpRequest
-    ..open('GET', path)
-    ..onLoadEnd.listen((e) => requestComplete(httpRequest))
-    ..send('');
+  // ignore: prefer_single_quotes
+  var userSubmit = document.querySelector("#usersubmit")
+    ..onClick.listen(usersubmit);
+    userSubmit;
 }
 
-void requestComplete(HttpRequest request) {
-  if (request.status == 200) {
-    final portmanteaux =
-        (json.decode(request.responseText) as List<dynamic>);
-    for (var i = 0; i < portmanteaux.length; i++) {
-      // var portmanteaux_str=jsonEncode(portmanteaux[i]);//json_encode： json对象转json字符串
-      // Map<String, dynamic> map = json.decode(portmanteaux_str);//json_decode： json字符串转json对象
-      Map<String, dynamic> map =portmanteaux[i];
-      wordList.children.add(LIElement()..text = map['name']);
-      // //change
-      // List<Hero> heroes;
-      // for (var i = 0; i < portmanteaux.length; i++) {
-      //   Hero h;
-      //   Map<int,String> map=portmanteaux[i];
-      //   h=Hero(int.parse(map['id']),map['name']);
-      //   heroes.add(h);
-      // }
-      // for (i=0;i<heroes.length;i++){
-      //   Hero h2=heroes[i];
-      //   wordList.children.add(LIElement()..text = h2.name);
-      // }
+void usersubmit(Event e) async {
+  var name = document.querySelector('#UserName');
+  var password = document.querySelector('#UserPassword');
+  var email = document.querySelector('#UserEmail');
+  var phonenumber = document.querySelector('#UserPhonenumber');
+    var data = {
+      'uname': (name as InputElement).value,
+      'upassword': (password as InputElement).value,
+      'uemail':(email as InputElement).value,
+      'uphone':(phonenumber as InputElement).value
+    };
       
-    }
-  } else {
-    wordList.children
-        .add(LIElement()..text = 'Request failed, status=${request.status}');
-  }
-}
+    var path = 'http://127.0.0.1:8888/personal_center/1';
+   final response = await http.put(path,
+        body: json.encode(data),
+        headers: {"content-type": "application/json"}).then((response) {
+      if (response.statusCode == 200) {
+      window.alert("修改成功");
+      } else if(response.statusCode == 409){window.alert("修改失败！手机号或邮箱已存在！");}
+      else window.alert("修改失败！");
+   
+    });
+    ;
+  
+ }
 
-class Hero {
-  final int id;
-  String name;
+// void main() {
+//   // var ele1=document.querySelector('#getUser').onClick.listen(makeRequest);
+//   // userList = querySelector('#userList') as UListElement;
+//   // ele1;
+//   //querySelector('#userName').text = "abccc";
+//   //querySelector('#userName').onClick.listen(makeRequest);
+//   var path = 'http://127.0.0.1:8888/personal_center/1';
+//   var httpRequest = HttpRequest();
+//   httpRequest
+//     ..open('PUT', path)
+//     ..onLoadEnd.listen((e) => requestComplete(httpRequest))
+//     ..send('');
+// }
 
-  Hero(this.id, this.name);
 
-  factory Hero.fromJson(Map<String, dynamic> hero) =>
-      Hero(_toInt(hero['id']), hero['name']);
+//  void requestComplete(HttpRequest request) {
+//   if (request.status == 200) {
+//     final portmanteaux =
+//         (json.decode(request.responseText));
+//       Map<String, dynamic> map =portmanteaux;
+//       querySelector('#userName').text = map['uname'];
+//       querySelector('#userPassword').text = map['upassword'];
+//       querySelector('#userEmail').text = map['uemail'];
+//       querySelector('#userPhonenumber').text = map['uphone'];
 
-  Map toJson() => {'id': id, 'name': name};
-}
-
-int _toInt(id) => id is int ? id : int.parse(id);
+//   } else {
+//     userList.children
+//         .add(LIElement()..text = 'Request failed, status=${request.status}');
+//   }}

@@ -17,7 +17,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!--start slider-->
             <link href="../css/camera.css" rel="stylesheet" type="text/css" media="all" />
             <script src="../js/jquery.min.js"></script>
-            <script type='text/javascript' src="../js/jquery.mobile.customized.min.js"></script>
+            <!-- <script type='text/javascript' src="../js/jquery.mobile.customized.min.js"></script> -->
             <script type='text/javascript' src="../js/jquery.easing.1.3.js"></script> 
             <script type='text/javascript' src="../js/camera.min.js"></script>
             <script>
@@ -97,7 +97,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 });
                 </script>
         
-        <script defer src="main.dart.js"></script>
+        <script defer src="personal_upload_component.dart.js"></script>
         </head>
 <body>
 <!--star wrap-->      
@@ -114,7 +114,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <a class="toggleMenu" href="#"><img src="./images/nav.png" alt="" /></a>
 							<ul class="nav">
 								<li><a href="../home-page/home_page_component.html">首页</a></li>
-								<li><a href="../online-blockly/online_blockly_component.html">在线编程</a></li>
+								<li><a href="../online-blockly/demos/code/question_bank_detail_component.html">在线编程</a></li>
 								<li><a href="../question-bank/question_bank_component.html">题库</a></li>
 								<li><a href="../search-result/search_result_component.html">搜索</a></li>
 								<li class="active"><a href="../personal-center/personal_center_component.html">个人中心</a></li>
@@ -132,7 +132,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="top-heading">
 	<!--start-wrap-->
 	<div class="wrap">
-		<h1>个人中心</h1>
+		<h1>上传题目</h1>
 	</div>
 	<!--end wrap-->
 </div> 
@@ -146,81 +146,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="contact-left">
 					
 					<div class="contact">
-					<div class="company_address">
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. </p>
-				     	<h3>My Company Name</h3>
-						<p>328 Ave C</p>
-						<p>Saskatoon,SK</p>
-						<p>S7R 2V9</p>
-				   		<p>Telephone :(00) 222 666 444</p>
-				   		<p>Fax : (000) 000 00 00 0</p>
-				 	 	<p>Email : <a href="mailto:info@mycompany.com"> info(at)mycompany.com</a></p>
-				   </div>
-					<div class="contact-form">
-					    <form method="post" action="../home-page/home_page_component.html">
-					    	<div>
-						    	<span><input name="userName" type="text" class="textbox right" value="first Name" onfocus="if(this.value == 'first Name') this.value='';" onblur="if(this.value == '') this.value='first Name';"></span>
-						    </div>
-						    <div>
-						    	<span><input name="userName" type="text" class="active textbox" value="last Name" onfocus="if(this.value == 'last Name') this.value='';" onblur="if(this.value == '') this.value='last Name';"></span>
-						    </div>
-						     <div class="clear"></div>
-						    <div>
-						    	<span><input name="userName" type="text" class="textbox right" value="Email Address" onfocus="if(this.value == 'Email Address') this.value='';" onblur="if(this.value == '') this.value='Email Address';"></span>
-						    </div>
-			
-						    <div class="clear"></div>
-						    <div>
-						    	<span><textarea rows="2" cols="70" onfocus="if(this.value == 'Your Message') this.value='';" onblur="if(this.value == '') this.value='Your Message';">Your Message</textarea></span>
-						    </div>
-						   <div>
-						   		<span><input type="submit" class="" value="Submit"></span>
-						  </div>
+                        <div class="contact-form">
+					
+                        <div>
+                           <input id="questioncontent" type='text1' value='请输入题目' onfocus="if(this.value == '请输入题目') this.value='';" onblur="if(this.value == '') this.value='请输入题目';">
+                        </div>
+                        <div class="clear"></div>
+						<div>
+						    <input id="questionanswer" type='text1' value='请输入答案' onfocus="if(this.value == '请输入答案') this.value='';" onblur="if(this.value == '') this.value='请输入答案';">
+                        </div>
+                        <div class="clear"></div>
+                        <div>
+						    <input id="questionsource" type='text2' value='请输入您的用户名' onfocus="if(this.value == '请输入您的用户名') this.value='';" onblur="if(this.value == '') this.value='请输入您的用户名';">
+                        </div>
+                        <div class="clear"></div>
+                        <span><button id="questionsubmit">上传题目</button></span>
+					</div>
+					        
 					    </form>
 				    </div>
 				    <div class="clear"></div>
 				</div>
 				</div>
-				<div class="contact-right">
-					<div class="side-bar">
-				<div class="grid-right-headings">
-					<h2><a href="#">aboutjetro</a></h2>
-					<h6> </h6>
-						<div class="clear"> </div>
-				</div>
-				<p style="padding:0px;">Lorem ipsum dolor sit amet, tempor adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p> 
-				<div class="grid-right-headings">
-					<h2><a href="#">categories</a></h2>
-					<h6> </h6>
-						<div class="clear"> </div>
-				</div>
-				<div class="seach-links">
-				<p><a href="#"> videos(3)</a></p>
-				<p><a href="#"> Sports(5)</a></p>
-				<p><a href="#"> Media(2)</a></p>
-				<p><a href="#"> Entertainment(7)</a></p>
-				<p><a href="#"> Life(4)</a></p>
-				<p><a href="#"> Super Cool Stuff(8)</a></p>
-				</div>
-				<div class="grid-right-headings">
-					<h2><a href="#">photogallery</a></h2>
-					<h6> </h6>
-						<div class="clear"> </div>
-				</div>
-				<div class="gallery">
-					<ul>
-						<li><a href="#"> </a></li>	
-						<li><a href="#"> </a></li>
-						<li><a href="#"> </a></li>
-						<li><a href="#"> </a></li>
-						<li><a href="#"> </a></li>
-						<li><a href="#"> </a></li>
-						<li><a href="#"> </a></li>
-						<li><a href="#"> </a></li>
-					</ul>
-				</div>
-				</div>
-			</div>
+
 			 <div class="clear"> </div>		
 			</div>
 		</div>
@@ -275,7 +223,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="copy-right">
 	<div class="wrap">
 		<div class="copy-right-left">
-			<p>Template by <a href="http://w3layouts.com/">w3layouts.com</a></p>
+			<p>Welcome to<a href="#"></a>BlocklyMath</p>
 		</div>
 	</div>
 </div>
