@@ -34,6 +34,6 @@ void register(Event e) async {
       }else window.alert("注册失败！");
    
     });
-    ;
+    
   
   }
