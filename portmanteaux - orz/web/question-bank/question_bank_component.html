@@ -101,6 +101,64 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		});
 		</script>
 
+<style>
+	.hor-minimalist-b
+
+{
+
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+
+	font-size: 12px;
+
+	background: #fff;
+
+	margin: 45px;
+
+	width: 90%;
+
+	border-collapse: collapse;
+
+	text-align: left;
+
+}
+
+.hor-minimalist-b th
+
+{
+
+	font-size: 14px;
+
+	font-weight: normal;
+
+	color: #039;
+
+	padding: 10px 8px;
+
+	border-bottom: 2px solid #f2b19c;
+
+}
+
+.hor-minimalist-b td
+
+{
+
+	border-bottom: 1px solid #f2b19c;
+
+	color: #039;
+
+	padding: 6px 8px;
+
+}
+
+.hor-minimalist-b tbody tr:hover td
+
+{
+
+	color: #e8603c;
+
+}
+
+	</style>
 
 </head>
 <body>
@@ -121,7 +179,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<li ><a href="../online-blockly/demos/code/question_bank_detail_component.html">在线编程</a></li>
 								<li class="active"><a href="../question-bank/question_bank_component.html">题库</a></li>
 								<li><a href="../search-result/search_result_component.html">搜索</a></li>
-								<li><a href="../personal-center/personal_center_component.html">个人中心</a></li>
+								<li><a href="../personal-center/personal_center_detail.html">个人中心</a></li>
 							<div class="clear"> </div>
 						    </ul>
 							<script type="text/javascript" src="../js/responsive-nav.js"></script>
@@ -201,50 +259,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="gallery">
 					<div class="clear"> </div>
 					<div class="container">
-					
-			<div id="gallerylist">
+						<div id="gallerylist">
+							<div id="typeList">
+					  
+						  </div>
 			
-				<div class="gallerylist-wrapper">				
-					<a class="popup-with-zoom-anim" href="#small-dialog1">
-						<img src="../images/image1.jpg"  alt="Image 1"/>
-						<span><img src="../images/plus.png" alt=" "/> </span>
-						<div class="desc">
-						 	<h2>鸡兔同笼问题</h2>
-						 	<h3>小学三年级</h3>
-						</div>
-					</a>
-				</div>
-				<div class="gallerylist-wrapper">				
-					<a class="popup-with-zoom-anim" href="#small-dialog1">
-						<img src="../images/image2.jpg"  alt="Image 2"/>
-						<span><img src="../images/plus.png" alt=" "/> </span>
-						<div class="desc">
-						 	<h2>牛吃草问题</h2>
-						 	<h3>小学五年级</h3>
-						</div>
-					</a>
-				</div>
-				<div class="gallerylist-wrapper">				
-					<a class="popup-with-zoom-anim" href="#small-dialog1">
-						<img src="../images/image3.jpg"  alt="Image 3" />
-						<span><img src="../images/plus.png" alt=" "/> </span>
-						<div class="desc">
-						 	<h2>简单概率问题</h2>
-						 	<h3>小学五年级</h3>
-						</div>
-					</a>
-				</div>
-				<div class="gallerylist-wrapper">				
-					<a class="popup-with-zoom-anim" href="#small-dialog1">
-						<img src="../images/image4.jpg"  alt="Image 4" />
-						<span><img src="../images/plus.png" alt=" "/> </span>
-						<div class="desc">
-						 	<h2>植树问题</h2>
-						 	<h3>小学四年级</h3>
-						</div>
-					</a>
-				</div>
-
 			</div>																																							
 		</div>
 	</div><!-- container -->
@@ -252,6 +271,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<script type="text/javascript">$('body').flipLightBox()</script>
 	<div class="clear"> </div>
 	</div>
+	<br>
+	<br>
+	<div class="heading">
+		<h2>题库</h2>
+		<h6> </h6>
+			<div class="clear"> </div>
+	</div>
+
+	<table class="hor-minimalist-b" id="questionList" summary="Employee Pay Sheet">  
+                
+	</table>
+	
+
 
 </div>
 </div>

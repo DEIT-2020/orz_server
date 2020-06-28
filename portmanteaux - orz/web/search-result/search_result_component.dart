@@ -13,8 +13,8 @@ Element questionList;
 
 
 void main() {
-  var ele1=document.querySelector('#getWords').onClick.listen(makeRequest2);
-  wordList = querySelector('#wordList') as UListElement;
+  // var ele1=document.querySelector('#getWords').onClick.listen(makeRequest2);
+  // wordList = querySelector('#wordList') as UListElement;
   questionList=querySelector('#questionList') ;
  
     var path = 'http://localhost:8888/question_bank';
@@ -108,16 +108,3 @@ void requestComplete2(HttpRequest request) {
   }
 }
 
-class Hero {
-  final int id;
-  String name;
-
-  Hero(this.id, this.name);
-
-  factory Hero.fromJson(Map<String, dynamic> hero) =>
-      Hero(_toInt(hero['id']), hero['name']);
-
-  Map toJson() => {'id': id, 'name': name};
-}
-
-int _toInt(id) => id is int ? id : int.parse(id);

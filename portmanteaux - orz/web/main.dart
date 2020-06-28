@@ -11,8 +11,8 @@ UListElement wordList;
 Element typeList;
 
 void main() {
-  var ele1=document.querySelector('#getWords').onClick.listen(makeRequest);
-  wordList = querySelector('#wordList') as UListElement;
+  // var ele1=document.querySelector('#getWords').onClick.listen(makeRequest);
+  // wordList = querySelector('#wordList') as UListElement;
   typeList=querySelector('#typeList') ;
  
     var path = 'http://localhost:8888/type';

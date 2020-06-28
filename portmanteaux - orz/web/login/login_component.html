@@ -97,7 +97,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 });
                 </script>
         
-        <script defer src="main.dart.js"></script>
+        <script defer src="login_component.dart.js"></script>
         </head>
 <body>
 <!--star wrap-->      
@@ -147,17 +147,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						
 				   </div>
 					<div class="contact-form" location=center>
-					    <form method="post" action="../home-page/home_page_component.html">
+                        <!-- <form method="post" action="../home-page/home_page_component.html"> -->
+                            <form method="post" action="../home-page/home_page_component.html"></form>
 					    	<div>
-                                <h3>用户名： </h3><br>
-                                <span><input name="userName" type="text" class="textbox right" value="UserName" onfocus="if(this.value == 'UserName') this.value='';" onblur="if(this.value == '') this.value='UserName';"></span><br><br><br><br><br>
+                                <h3>手机： </h3><br>
+                                <span><input id="Phone" name="Phone" type="text" class="textbox right" value="phone" onfocus="if(this.value != 'phone') this.value='';" onblur="if(this.value == '') this.value='phone';"></span><br><br><br><br><br>
                                 <h3>密码：</h3><br>
-						    	<span><input name="userName" type="text" class="textbox right" value="Password" onfocus="if(this.value == 'UserName') this.value='';" onblur="if(this.value == '') this.value='UserName';"></span>
+						    	<span><input id="Password" name="Password" type="text" class="textbox right" value="password" onfocus="if(this.value != 'password') this.value='';" onblur="if(this.value == '') this.value='password';"></span>
                             </div>
                             <div class="clear"></div>
 						   <div>
                                <p> <a href="../register/register_component.html">还没有账户？点击注册</a></p>
-						   		<span><input type="submit" class="" value="登录"></span> *要修改
+						   		<span><input type="submit" class="" value="登录" id="login"></span> 
 						  </div>
 					    </form>
 				    </div>
