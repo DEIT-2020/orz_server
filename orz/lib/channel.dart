@@ -8,6 +8,8 @@ import 'package:orz/controller/search_controller.dart';
 import 'package:orz/controller/blocklyuser_controller.dart';
 import 'package:orz/controller/type_controller.dart';
 import 'package:orz/controller/login_controller.dart';
+import 'package:orz/controller/userfinish_controller.dart';
+
 
 class HeroesChannel extends ApplicationChannel {
 
@@ -139,6 +141,10 @@ Future prepare() async {
     //     .linkFunction((request) async {
     //   return Response.ok({"key": "/personal_center_store/[:id]"});
     // });
+  router
+        .route("/userfinish/:uid/[:qid/[:correct]]")
+        .link(() => UserfinishController(context));
+    
 
      router
         .route("/test")

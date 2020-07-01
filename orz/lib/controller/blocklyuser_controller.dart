@@ -61,4 +61,14 @@ Future<Response> updateUser(@Bind.path('uid') int uid, @Bind.body() Blocklyuser 
 
 
   }
+   @Operation.post('qid')
+  Future<Response> storeUserfinish(@Bind.path('qid') int qid,@Bind.body() Blocklyuser blocklyuser) async {
+    final postquery = Query<UserStore>(context)
+  ..values.storetime= DateTime.now()
+  ..values.user.id = blocklyuser.id
+  ..values.question.id  = qid;
+    final insertedUserstore = await postquery.insert();
+
+    return Response.ok(insertedUserstore);
+  }
   }
