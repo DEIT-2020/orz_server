@@ -79,6 +79,14 @@ class QuestionController extends ResourceController {
 //     return Response.ok("checkQuestions");
 //   }
 
+    @Operation.put('qid')
+Future<Response> updateUser(@Bind.path('qid') int qid, @Bind.body() Question question) async {
+  final query = Query<Question>(context)
+    ..where((u) => u.id).equalTo(qid)
+    ..values = question;
+
+  return Response.ok(await query.updateOne());
+}
 //delete
   @Operation.delete()
   Future<Response> deleteQuestion(@Bind.body() Question question) async {
@@ -87,14 +95,7 @@ class QuestionController extends ResourceController {
   await deletequery.delete();
     return Response.ok("删除成功！");
   }
-    @Operation.put('id')
-Future<Response> updateUser(@Bind.path('id') int id, @Bind.body() Question question) async {
-  final query = Query<Question>(context)
-    ..where((u) => u.id).equalTo(id)
-    ..values = question;
 
-  return Response.ok(await query.updateOne());
-}
 
   @Operation.post('qid')
   Future<Response> storeUserstore(@Bind.path('qid') int qid,@Bind.body() Blocklyuser blocklyuser) async {

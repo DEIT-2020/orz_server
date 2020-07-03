@@ -29,5 +29,28 @@ class TypeController extends ResourceController {
     return Response.ok(types);
   }
 
+    @Operation.post()
+  Future<Response> storeQuestion(@Bind.body() Type inputType) async {
+    final postquery = Query<Type>(context)
+  ..values = inputType;
+    final insertedQuestion = await postquery.insert();
 
+    return Response.ok(insertedQuestion);
+  }
+    @Operation.put('id')
+Future<Response> updateUser(@Bind.path('id') int id, @Bind.body() Type type) async {
+  final query = Query<Type>(context)
+    ..where((t) => t.id).equalTo(id)
+    ..values = type;
+
+  return Response.ok(await query.updateOne());
+}
+//delete
+  @Operation.delete()
+  Future<Response> deleteQuestion(@Bind.body() Type type) async {
+  final deletequery = Query<Type>(context)
+    ..where((t) => t.id).equalTo(type.id);
+  await deletequery.delete();
+    return Response.ok("删除成功！");
+  }
 }

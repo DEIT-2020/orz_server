@@ -38,8 +38,8 @@ class UserfinishController extends ResourceController {
   }
 
   //delete
-  @Operation.delete("uid")
-  Future<Response> deleteQuestion(@Bind.path('uid') int uid,@Bind.body() UserFinish userfinish) async {
+  @Operation.delete()
+  Future<Response> deleteQuestion(@Bind.body() UserFinish userfinish) async {
   final deletequery = Query<UserFinish>(context)
     ..where((uf) => uf.id).equalTo(userfinish.id);
   await deletequery.delete();
