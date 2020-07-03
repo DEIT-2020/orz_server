@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script>
+$(document).ready(function(){
+  $.cookie('name', 'runoob');  // 创建 cookie
+  name = $.cookie('name');     // 读取 cookie
+  $("#test").text(name);
+  $.cookie('name2', 'runoob2', { expires: 7, path: '/' });
+  name2 = $.cookie('name2');
+  $("#test2").text(name2);
+});
+</script>
+</head>
+<body>
+<p id="test"></p>
+<p id="test2"></p>
+</body>
+</html>

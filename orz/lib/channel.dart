@@ -8,6 +8,8 @@ import 'package:orz/controller/search_controller.dart';
 import 'package:orz/controller/blocklyuser_controller.dart';
 import 'package:orz/controller/type_controller.dart';
 import 'package:orz/controller/login_controller.dart';
+import 'package:orz/controller/userfinish_controller.dart';
+import 'package:orz/controller/userstore_controller.dart';
 
 class HeroesChannel extends ApplicationChannel {
 
@@ -62,50 +64,50 @@ Future prepare() async {
   Controller get entryPoint {
     final router = Router();
 
-    // add this route
-  router
-    .route('/auth/token')
-    .link(() => AuthController(authServer));
+  //   // add this route
+  // router
+  //   .route('/auth/token')
+  //   .link(() => AuthController(authServer));
 
-    router
-    .route('/heroes/[:id]')
-    // .link(() => Authorizer.bearer(authServer))
-    .link(() => HeroesController(context));
+    // router
+    // .route('/heroes/[:id]')
+    // // .link(() => Authorizer.bearer(authServer))
+    // .link(() => HeroesController(context));
 
     
-    router
-      .route("/example")
-      .linkFunction((request) async {
-        return Response.ok({"key": "value"});
-      });
+    // router
+    //   .route("/example")
+    //   .linkFunction((request) async {
+    //     return Response.ok({"key": "value"});
+    //   });
 
-    router
-      .route('/register')
-      .link(() => RegisterController(context, authServer));
+    // router
+    //   .route('/register')
+    //   .link(() => RegisterController(context, authServer));
 
 
-//index
-    router
-        .route("/index")
-        .link(() => QuestionController(context));
-//login
-    router
-        .route("/login/custom")
-        .link(() => UserController(context));
-    router
-        .route("/login/administer")
-        .link(() => UserController(context));
+// //index
+//     router
+//         .route("/index")
+//         .link(() => QuestionController(context));
+// //login
+//     router
+//         .route("/login/custom")
+//         .link(() => UserController(context));
+//     router
+//         .route("/login/administer")
+//         .link(() => UserController(context));
 
-//online_blockly
-    router
-        .route("/online_blockly")
-        .linkFunction((request) async {
-      return Response.ok({"key": "online_blockly"});
-    });
+// //online_blockly
+//     router
+//         .route("/online_blockly")
+//         .linkFunction((request) async {
+//       return Response.ok({"key": "online_blockly"});
+//     });
 
 //type
     router
-        .route("/type")
+        .route("/type/[:id]")
         .link(() =>TypeController(context));
 
     //question bank
@@ -139,12 +141,19 @@ Future prepare() async {
     //     .linkFunction((request) async {
     //   return Response.ok({"key": "/personal_center_store/[:id]"});
     // });
-
-     router
-        .route("/test")
-        .linkFunction((request) async {
-      return Response.ok(["name1","name2","name3"]);
-    });
+  router
+        .route("/userfinish/[:uid/[:qid/[:correct]]]")
+        .link(() => UserfinishController(context));
+  router
+        .route("/userstore/[:uid/[:qid]]")
+        .link(() => UserstoreController(context));
+    
+//test
+    //  router
+    //     .route("/test")
+    //     .linkFunction((request) async {
+    //   return Response.ok(["name1","name2","name3"]);
+    // });
 
 // //administer
 //     router

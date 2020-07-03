@@ -10,6 +10,14 @@ class UserController extends ResourceController {
 
   final ManagedContext context;
 
+@Operation.get()
+  Future<Response> getUsers() async {
+    final userQuery = Query<Blocklyuser>(context);//从哪个database读取
+    final users = await userQuery.fetch();//The fetch() execution method returns a List<Hero>.
+
+    return Response.ok(users);
+  }
+
 @Operation.get('uid')
   Future<Response> getUserByID(@Bind.path('uid') int uid) async {
   final userQuery = Query<Blocklyuser>(context)
@@ -43,7 +51,13 @@ Future<Response> updateUser(@Bind.path('uid') int uid, @Bind.body() Blocklyuser 
 
   return Response.ok(await query.updateOne());
 }
-
+ @Operation.delete()
+  Future<Response> deleteUser(@Bind.body() Blocklyuser blocklyuser) async {
+  final deletequery = Query<Blocklyuser>(context)
+    ..where((u) => u.id).equalTo(blocklyuser.id);
+  await deletequery.delete();
+    return Response.ok("删除成功！");
+  }
 
   @Operation.get('uid','qid')
   Future<Response> storeUserstore(@Bind.path('uid') int uid,@Bind.path('qid') int qid) async {
@@ -60,5 +74,15 @@ Future<Response> updateUser(@Bind.path('uid') int uid, @Bind.body() Blocklyuser 
     }
 
 
+  }
+   @Operation.post('qid')
+  Future<Response> storeUserfinish(@Bind.path('qid') int qid,@Bind.body() Blocklyuser blocklyuser) async {
+    final postquery = Query<UserStore>(context)
+  ..values.storetime= DateTime.now()
+  ..values.user.id = blocklyuser.id
+  ..values.question.id  = qid;
+    final insertedUserstore = await postquery.insert();
+
+    return Response.ok(insertedUserstore);
   }
   }
