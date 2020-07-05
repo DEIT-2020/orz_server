@@ -14,13 +14,14 @@ UListElement qDetail;
 Element myanswer;
 // Element qsource;
 String qanswer;
+String markid="1";
 void main() {
   var ele1=document.querySelector('#postAnswer').onClick.listen(makePostRequest);
     // userList = querySelector('#userList') as UListElement;
     // ele1;
     //querySelector('#userName').text = "abccc";
     //querySelector('#userName').onClick.listen(makeRequest);
-    var path = 'http://127.0.0.1:8888/question_bank/1';
+    var path = 'http://127.0.0.1:8888/question_bank/$markid';
     var httpRequest = HttpRequest();
     httpRequest
       ..open('GET', path)

@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 UListElement userList;
 InputElement userinput;
-
+String a=window.localStorage['userid'].toString();
 void main() {
   // ignore: prefer_single_quotes
   var userSubmit = document.querySelector("#usersubmit")
@@ -28,7 +28,7 @@ void usersubmit(Event e) async {
       'uphone':(phonenumber as InputElement).value
     };
       
-    var path = 'http://127.0.0.1:8888/personal_center/1';
+    var path = 'http://127.0.0.1:8888/personal_center/$a';
    final response = await http.put(path,
         body: json.encode(data),
         headers: {"content-type": "application/json"}).then((response) {

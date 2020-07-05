@@ -62,6 +62,7 @@ void searchquestion(Event e) async {
                             <th scope="col">id</th>
                             <th scope="col">题干</th>
                             <th scope="col">来源</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -72,6 +73,7 @@ void searchquestion(Event e) async {
       for (var j = 0; j < 3; j++){
      temp=temp+'<td>'+data[i][property[j]].toString()+'</td>';
       }
+      // temp=temp+'<td>'+'''<button ><a href='http://127.0.0.1:8080/online-blockly/demos/code/question_bank_detail_component.html'>详情</a></button>'''+'</td>';
       temp=temp+'</tr>';
      print(temp);
      }

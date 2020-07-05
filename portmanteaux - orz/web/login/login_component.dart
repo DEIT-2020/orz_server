@@ -1,6 +1,7 @@
 import 'dart:html';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:biscuits/biscuits.dart';
 
 void main() {
   // ignore: prefer_single_quotes
@@ -19,6 +20,11 @@ void login(Event e) async {
   print(phone1);
   HttpRequest.getString(path).then((String fileContents) {
     final data = json.decode(fileContents);
+   
+    //用localStorage记录用户id
+    window.localStorage.clear();
+    window.localStorage.addAll({'userid':data['id'].toString()});
+    print(window.localStorage['userid']);
     if (password1==data['upassword']){
         window.alert('登录成功！');
         window.location.href='../home-page/home_page_component.html'; 
