@@ -4,14 +4,16 @@ import 'package:http/http.dart' as http;
 
 UListElement userList;
 InputElement userinput;
-
+String a=window.localStorage['userid'].toString();
+// a=window.localStorage
 void main() {
   // var ele1=document.querySelector('#getUser').onClick.listen(makeRequest);
   // userList = querySelector('#userList') as UListElement;
   // ele1;
   //querySelector('#userName').text = "abccc";
   //querySelector('#userName').onClick.listen(makeRequest);
-  var path = 'http://127.0.0.1:8888/personal_center/1';
+  
+  var path = 'http://127.0.0.1:8888/personal_center/$a';
   var httpRequest = HttpRequest();
   httpRequest
     ..open('GET', path)

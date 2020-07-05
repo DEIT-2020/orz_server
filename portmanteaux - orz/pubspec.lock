@@ -43,6 +43,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.24"
+  biscuits:
+    dependency: "direct main"
+    description:
+      name: biscuits
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.5.0"
   build:
     dependency: transitive
     description:
@@ -232,6 +239,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.1.4"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.16.0"
   io:
     dependency: transitive
     description:
