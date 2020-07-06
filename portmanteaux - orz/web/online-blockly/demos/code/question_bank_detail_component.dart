@@ -6,6 +6,7 @@
 
 import 'dart:html';
 import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 UListElement wordList;
 UListElement qDetail;
@@ -46,13 +47,27 @@ void main() {
           .add(LIElement()..text = 'Request failed, status=${request.status}');
     }}
 
-     void makePostRequest(MouseEvent event) {
+     Future makePostRequest(MouseEvent event) async {
+       String correct;
         myanswer=document.querySelector('#myAnswer');
         if (myanswer.toString()==qanswer){
+          correct="1";
      window.alert("答案正确！");
     }else{
+      correct="0";
       window.alert("答案错误！正确答案是：$qanswer");
     }
+    var userid=window.localStorage['userid'].toString();
+var path = 'http://127.0.0.1:8888/userfinish/$userid/$markid/$correct';
+    // await HttpRequest.request(path,method:'POST',sendData:json.encode(data),Content-Type:"application/json").then((HttpRequest resp){});
+   final response = await http.post(path,
+        headers: {"content-type": "application/json"}).then((response) {
+      
+      if (response.statusCode == 200) {
+      window.alert("已添加到做题记录！");
+      }else window.alert("由于网络故障等原因，未添加到做题记录！");
+   
+    });
 }
   // Future main() async {
   //   // var ele1=document.querySelector('#getWords').onClick.listen(makeRequest2);
